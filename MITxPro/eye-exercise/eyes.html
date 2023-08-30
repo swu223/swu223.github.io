@@ -3,8 +3,9 @@
 <html>
   <head> 
     <title>Pacman Project</title>
+    <link rel="stylesheet" href="./eyes.css" />
   </head>
-  <link rel="stylesheet" href="./eyes.css" />
+  
   <body>
     <div class="eyes">
       <div class="eye">
@@ -14,18 +15,9 @@
         <div class="ball"></div>
       </div>
     </div>
-  </body>
-  <script>
-    var balls = document.getElementsByClassName("ball");
-    document.onmousemove = () => {
-      var x = (event.clientX * 100) / window.innerWidth + "%";
-      var y = (event.clientY * 100) / window.innerHeight + "%";
 
-      for (let i = 0; i < 2; i++) {
-        balls[i].style.left = x;
-        balls[i].style.top = y;
-        balls[i].transfoorm = "translate(-" + x + ",-" + y + ")";
-      }
-    };
-  </script>
+    <!-- Scripts -->
+      <script src="./eyes.js"></script>
+  </body>
+
 </html>
