@@ -1,8 +1,6 @@
-# Eyes
-## Exercise on eyes
-<img src= "oneeye.png" width='300'/>
+# Pacman Practice Project
 
-This project showcases animation regarding to input received by the mouse. Move your mouse around the page and watch the eyes follow the mouse.
+This repository stores the code for the Pacman exercise from MITxPro's Module 4 from May 2023 cohort. The base code was made by Professor John Williams. In this project, Pac-man is set to move around the window and to change directions when the Pac-man image hits the edge of the window.
 
 ## Getting Started
 
@@ -13,8 +11,9 @@ to run the program.
 
 Here are some planned improvements to the current project:
 
-- change the look of the eyes
-- add animation of blinking to the eyes
+- add a button to start pacman's motions
+- have pacman's motion be in response to keyboard inputs
+- add little lights for pacman to eat
 
 ## Authors
 

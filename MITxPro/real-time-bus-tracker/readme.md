@@ -1,20 +1,18 @@
-# Eyes
-## Exercise on eyes
-<img src= "oneeye.png" width='300'/>
+# Real-time Bus Tracker
 
-This project showcases animation regarding to input received by the mouse. Move your mouse around the page and watch the eyes follow the mouse.
+One Paragraph of the project description
 
 ## Getting Started
 
-You only need to download the repository and open the index.html file on your browser
-to run the program.
+You need to download the repository and open the index.html file on your browser
+to run the program. You also need a mapbox api. Sign up for one via their website.
 
 ## Next Steps
 
 Here are some planned improvements to the current project:
 
-- change the look of the eyes
-- add animation of blinking to the eyes
+- Create distinction between the different buses going in different directions
+- add animation showing the buses sliding from one location to the next
 
 ## Authors
 
