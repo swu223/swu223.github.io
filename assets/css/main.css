@@ -1656,6 +1656,14 @@ input, select, textarea {
 				margin: 0 auto;
 				width: auto;
 			}
+		
+		.cropped {
+			width: 100%; 
+			height: 250px; 
+			object-fit: contain;
+			margin:auto;
+			
+		}
 
 /* Button */
 
