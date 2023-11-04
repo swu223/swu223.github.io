@@ -6,12 +6,27 @@ function ShoppingCart({ availableItems }) {
 
   // TODO: create state for stock and cart using React.useState
   const [stock, setStock] = React.useState(availableItems);
+  const [cart, setCart] = React.useState([]);
 
   const moveToCart = (e) => {
     // TODO: create product and numInStock variables
+    let [product, numInStock] = e.target.innerHTML.split(":");
+    console.log(product);
+    console.log(numInStock);
     // TODO: Determine if numInStock is greater than 0. If not, find the product that was clicked and update its numInStock
+    if (numInStock == 0){
+      console.log("no more in stock");
+      return;}
     // TODO: Update the stock state to include the new stock
+    let item = stock.find((item) => item.product == product);
+    let newStock = stock.map((item) =>{ 
+      if(item.product == product){item.inStock--};
+      return item;
+      });
+    setStock(newStock);
     // TODO: Update the cart state to include the updated item
+    let newCart = [...cart, item];
+    setCart(newCart);
   };
 
   // No need to update code beyond this point
