@@ -1,6 +1,6 @@
 # Fetch Data Exercise with React
 
-This project features React components useEffect and useReduce to fetch data from url and present it in a paginated list. 
+This project features React components useEffect and useReduce to fetch data from a url and present it in a paginated list. 
 
 ## Getting Started
 
