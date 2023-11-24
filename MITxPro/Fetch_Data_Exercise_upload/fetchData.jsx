@@ -1,11 +1,13 @@
+// What I want to do is to create a way to search for pieces at the Metropolitan museum. Users use a search bar to find pieces. Pieces related to search are found and displayed on the screen in a grid manner. 
+
+// Pagination, range and paginate all have to do with creating navigable pages.
 const Pagination = ({ items, pageSize, onPageChange }) => {
-  // Part 2 code goes here
   const { Button } = ReactBootstrap;
   if (items.length <= 0) return null;
   
   //find out how many pages you need
   let num = Math.ceil(items.length / pageSize);
-  let pages = range(1, num+1);
+  let pages = range(1, num + 1);
   //create the number of pages
   const list = pages.map(page => {
     return (
@@ -33,6 +35,7 @@ function paginate(items, pageNumber, pageSize) {
   return page;
 }
 
+// The following code pulls information from the server.
 const useDataApi = (initialUrl, initialData) => {
   const { useState, useEffect, useReducer } = React;
   const [url, setUrl] = useState(initialUrl);
@@ -46,7 +49,6 @@ const useDataApi = (initialUrl, initialData) => {
   useEffect(() => {
     let didCancel = false;
     const fetchData = async () => {
-      // Part 1, step 1 code goes here
       dispatch({ type: 'FETCH_INIT' });
       try {
         const result = await axios(url);
@@ -59,6 +61,7 @@ const useDataApi = (initialUrl, initialData) => {
         }
       }
     };
+
     fetchData();
     return () => {
       didCancel = true;
@@ -93,42 +96,98 @@ const dataFetchReducer = (state, action) => {
   }
 };
 
-// App that gets data from Hacker News url
+// for every item in the array, get the object info from the website and then grab the image url.
+// const fetchImage = (objectID) => {
+//   axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`)
+//   .then(response =>{
+//     imgInfo
+//     return response.data.primaryImageSmall;
+//   })
+//   .catch(err =>{
+//     return ('Item not able to be shown');
+//   });
+// };
+
+// const getAllImages = (allIDs=[]) => {
+//   const allImages = allIDs.map((objectID) => {
+//     fetchImage(objectID);
+//   });
+//   return allImages;
+// }
+
+
+// Show the image in a card format on webpage
+
+// App that gets data from MET
 function App() {
   const { Fragment, useState, useEffect, useReducer } = React;
-  const [query, setQuery] = useState('MIT');
+  const [query, setQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 10;
+  const pageSize = 12;
   const [{ data, isLoading, isError }, doFetch] = useDataApi(
-    'https://hn.algolia.com/api/v1/search?query=MIT',
-    {
-      hits: [],
+    'https://collectionapi.metmuseum.org/public/collection/v1/search?q=sunflowers',
+    { 
+      objectIDs: [] 
     }
   );
+  // const [objectData, setObjectData] = useState([]);
+
+  console.log('App function fired')
+
   const handlePageChange = (e) => {
     setCurrentPage(Number(e.target.textContent));
   };
-  let page = data.hits;
+
+  //data should be an object with 2 key pairs, total number of objects and an array of object IDs.
+  let page = data.objectIDs;
+  //groups search result into pages
   if (page.length >= 1) {
     page = paginate(page, currentPage, pageSize);
     console.log(`currentPage: ${currentPage}`);
+    console.log('page', page)
   }
+
+  useEffect(() =>{
+    let didCancel = false;
+    console.log('promise run')
+    const fetchImgs = async () => {
+      try{
+        const imgResult = await Promise.allSettled(
+          page.map((objectID)=> {
+            axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`)
+          })
+        )
+          console.log('imgRes', imgResult)
+      } catch (error) {
+        if (!didCancel) {
+          console.log(error);
+        }
+      }
+    };
+
+    fetchImgs();
+    return() => {
+      didCancel = true
+    };
+  }, [page]);
+
   return (
     <Fragment>
       {isLoading ? (
         <div>Loading ...</div>
       ) : (
-        // Part 1, step 2 code goes here
-        <ul>
-          {page.map((item) => (
-            <li key={item.objectID}>
-              <a href={item.url}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      )}
+        <div>
+          {
+          page.map((item) => (
+            <li key={item}>{item}</li>  
+          ))
+          }
+        </div>
+      )
+    }
+
       <Pagination
-        items={data.hits}
+        items={data.objectIDs}
         pageSize={pageSize}
         onPageChange={handlePageChange}
       ></Pagination>

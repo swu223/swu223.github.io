@@ -1,0 +1,90 @@
+{
+  "objectID": 705155,
+  "isHighlight": false,
+  "accessionNumber": "2015.744.1",
+  "accessionYear": "2015",
+  "isPublicDomain": true,
+  "primaryImage": "https://images.metmuseum.org/CRDImages/dp/original/DP860374.jpg",
+  "primaryImageSmall": "https://images.metmuseum.org/CRDImages/dp/web-large/DP860374.jpg",
+  "additionalImages": [],
+  "constituents": [
+    {
+      "constituentID": 79190,
+      "role": "Artist",
+      "name": "Henri-Charles Guérard",
+      "constituentULAN_URL": "http://vocab.getty.edu/page/ulan/500459371",
+      "constituentWikidata_URL": "https://www.wikidata.org/wiki/Q2381615",
+      "gender": ""
+    }
+  ],
+  "department": "Drawings and Prints",
+  "objectName": "Drawing",
+  "title": "Fan Design with Cats and Sunflowers",
+  "culture": "",
+  "period": "",
+  "dynasty": "",
+  "reign": "",
+  "portfolio": "",
+  "artistRole": "Artist",
+  "artistPrefix": "",
+  "artistDisplayName": "Henri-Charles Guérard",
+  "artistDisplayBio": "French, Paris 1846–1897 Paris",
+  "artistSuffix": "",
+  "artistAlphaSort": "Guérard, Henri-Charles",
+  "artistNationality": "French",
+  "artistBeginDate": "1846",
+  "artistEndDate": "1897",
+  "artistGender": "",
+  "artistWikidata_URL": "https://www.wikidata.org/wiki/Q2381615",
+  "artistULAN_URL": "http://vocab.getty.edu/page/ulan/500459371",
+  "objectDate": "ca. 1885–90",
+  "objectBeginDate": 1880,
+  "objectEndDate": 1895,
+  "medium": "Pen and black ink over black chalk or graphite, gouache and gold leaf on prepared (stiffened) patterned silk",
+  "dimensions": "12 1/16 × 23 3/4 in. (30.6 × 60.4 cm) [semicircle]",
+  "measurements": [
+    {
+      "elementName": "Overall",
+      "elementDescription": null,
+      "elementMeasurements": { "Height": 30.6, "Width": 60.4 }
+    }
+  ],
+  "creditLine": "Gift of Robert Tuggle and Paul Jeromack, 2015",
+  "geographyType": "",
+  "city": "",
+  "state": "",
+  "county": "",
+  "country": "",
+  "region": "",
+  "subregion": "",
+  "locale": "",
+  "locus": "",
+  "excavation": "",
+  "river": "",
+  "classification": "Drawings",
+  "rightsAndReproduction": "",
+  "linkResource": "",
+  "metadataDate": "2021-06-05T04:45:37.2Z",
+  "repository": "Metropolitan Museum of Art, New York, NY",
+  "objectURL": "https://www.metmuseum.org/art/collection/search/705155",
+  "tags": [
+    {
+      "term": "Fans",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300258857",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q193220"
+    },
+    {
+      "term": "Cats",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300265960",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q146"
+    },
+    {
+      "term": "Sunflowers",
+      "AAT_URL": "http://vocab.getty.edu/page/aat/300404749",
+      "Wikidata_URL": "https://www.wikidata.org/wiki/Q171497"
+    }
+  ],
+  "objectWikidata_URL": "",
+  "isTimelineWork": false,
+  "GalleryNumber": ""
+}
