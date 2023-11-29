@@ -1,6 +1,6 @@
 # Fetch Data Exercise with React
 
-This project features React components useEffect and useReduce to fetch data from a url and present it in a paginated list. 
+This project features React components useEffect and useReduce to fetch data from a url and present it in a paginated list. We are using the Metropolitan Museum's public api, which can be found here: https://metmuseum.github.io/.
 
 ## Getting Started
 
@@ -28,3 +28,4 @@ This project is licensed under the [MIT License](https://opensource.org/license/
   - *README Template* provided by **Billie Thompson** 
     [PurpleBooth](https://github.com/PurpleBooth/a-good-readme-template/blob/main/README.md)
   - Code templates provided by Professor John Williams and Professor Abel Sanchez
+  - Thank you Metropolitan Museum for your robust api.

@@ -4,7 +4,7 @@
 const Pagination = ({ items, pageSize, onPageChange }) => {
   const { Button } = ReactBootstrap;
   if (items.length <= 0) return null;
-  
+  console.log('pagination run');
   //find out how many pages you need
   let num = Math.ceil(items.length / pageSize);
   let pages = range(1, num + 1);
@@ -24,12 +24,14 @@ const Pagination = ({ items, pageSize, onPageChange }) => {
 };
 
 const range = (start, end) => {
+  console.log('range calculated')
   return Array(end - start + 1)
     .fill(0)
     .map((item, i) => start + i);
 };
 
 function paginate(items, pageNumber, pageSize) {
+  console.log('paginated pages')
   const start = (pageNumber - 1) * pageSize;
   let page = items.slice(start, start + pageSize);
   return page;
@@ -48,6 +50,7 @@ const useDataApi = (initialUrl, initialData) => {
 
   useEffect(() => {
     let didCancel = false;
+    console.log('dataapi fetch run')
     const fetchData = async () => {
       dispatch({ type: 'FETCH_INIT' });
       try {
@@ -67,18 +70,22 @@ const useDataApi = (initialUrl, initialData) => {
       didCancel = true;
     };
   }, [url]);
+  
+  console.log('state',state);
   return [state, setUrl];
 };
 
 const dataFetchReducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_INIT':
+      console.log('fetch init')
       return {
         ...state,
         isLoading: true,
         isError: false,
       };
     case 'FETCH_SUCCESS':
+      console.log('fetch success')
       return {
         ...state,
         isLoading: false,
@@ -86,6 +93,7 @@ const dataFetchReducer = (state, action) => {
         data: action.payload,
       };
     case 'FETCH_FAILURE':
+      console.log('fetch failed')
       return {
         ...state,
         isLoading: false,
@@ -95,28 +103,6 @@ const dataFetchReducer = (state, action) => {
       throw new Error();
   }
 };
-
-// for every item in the array, get the object info from the website and then grab the image url.
-// const fetchImage = (objectID) => {
-//   axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`)
-//   .then(response =>{
-//     imgInfo
-//     return response.data.primaryImageSmall;
-//   })
-//   .catch(err =>{
-//     return ('Item not able to be shown');
-//   });
-// };
-
-// const getAllImages = (allIDs=[]) => {
-//   const allImages = allIDs.map((objectID) => {
-//     fetchImage(objectID);
-//   });
-//   return allImages;
-// }
-
-
-// Show the image in a card format on webpage
 
 // App that gets data from MET
 function App() {
@@ -130,7 +116,8 @@ function App() {
       objectIDs: [] 
     }
   );
-  // const [objectData, setObjectData] = useState([]);
+  // const [{imgData, imgLoading, imgError},getImgData] = fetchImages([436524],{})
+  const [imgData, setImgData] = useState([]);
 
   console.log('App function fired')
 
@@ -146,30 +133,33 @@ function App() {
     console.log(`currentPage: ${currentPage}`);
     console.log('page', page)
   }
-
-  useEffect(() =>{
-    let didCancel = false;
-    console.log('promise run')
-    const fetchImgs = async () => {
-      try{
-        const imgResult = await Promise.allSettled(
-          page.map((objectID)=> {
-            axios.get(`https://collectionapi.metmuseum.org/public/collection/v1/objects/${objectID}`)
+  
+  {
+    useEffect( ()=>{
+      console.log('object data fetch started')
+      let imgResult = [];
+      let objectURLs = page.map((ID)=>`https://collectionapi.metmuseum.org/public/collection/v1/objects/${ID}`);
+    
+      console.log('objectURLs', objectURLs);
+      
+      
+      Promise.allSettled(objectURLs.map((url)=> axios.get(url)))
+      .then(
+        // results give an array of objects, status and values
+        (results) => {
+          imgResult = results.map((eachObject) => {
+            if(eachObject.status === 'fulfilled'){return eachObject.value }
+            else {return {error: 'object unavailable'}}
           })
-        )
-          console.log('imgRes', imgResult)
-      } catch (error) {
-        if (!didCancel) {
-          console.log(error);
-        }
-      }
-    };
+          console.log('imgResult',imgResult)
+          setImgData(imgResult)
+        });
+    
+        }, [data, currentPage])
 
-    fetchImgs();
-    return() => {
-      didCancel = true
-    };
-  }, [page]);
+        console.log('imgData after useEffect', imgData);
+  }
+  
 
   return (
     <Fragment>
@@ -178,9 +168,25 @@ function App() {
       ) : (
         <div>
           {
-          page.map((item) => (
-            <li key={item}>{item}</li>  
-          ))
+          imgData.map((item) => {
+            if('data' in item){
+              if(item.data.primaryImageSmall !== ""){
+                return (
+                  <li key={item.data.objectID}>
+                  <a href={item.data.objectURL}>{item.data.title}
+                  <img src={item.data.primaryImageSmall} width='200px'></img>
+                  </a>
+                  </li>)
+              } else {
+                return (
+                  <li key={item.data.objectID}>
+                  <a href={item.data.objectURL}>{item.data.title}
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Question_mark_%28black%29.svg/800px-Question_mark_%28black%29.svg.png" width='200px'></img>
+                  </a>
+                  </li>)
+              }}
+            else {return(<li key={item}>{item.error}</li>)}
+          })
           }
         </div>
       )
