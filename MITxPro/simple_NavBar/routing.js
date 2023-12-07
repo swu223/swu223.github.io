@@ -3,22 +3,23 @@ var routes = {
   '/':            'home.html',
   '#/home':       'home.html',                
   '#/signin':     'signin.html',     
-  '#/about_page':  'about.html',
+  '#/aboutpage':  'about.html',
   '#/contact':    'contact.html',
 };
 
 // This is a function that takes a page path as an argument
 async function router() {
   var innerElement = '';
-  let link = window.location.hash;
+  console.log(window.location.hash)
+  var link = window.location.hash;
   
-  var count = (link.split("/").length -1);
+  var count = (link.split("/").length-1);
   if(count > 1){
     innerElement = link.split("/")[2];
-    link = link.split("/")[1];
+    link = '#/'+link.split("/")[1];
   }
 
-  let route = routes[link];
+  var route = routes[link];
   if (route) loadPage(route, innerElement);
 }
 router();
@@ -35,11 +36,11 @@ async function loadPage(page, innerElement) {
   // your code goes here
   element.innerHTML = content;
 
-  if(innerElement) scrollIntoView(innerElement);
+    if(innerElement) {scrollIntoView(innerElement);}
 }
 
 function scrollIntoView(id){
-  document.getElementById(id).scrollIntoViwe();
+  document.getElementById(id).scrollIntoView();
 }
 
 window.addEventListener('hashchange', router);
