@@ -1,10 +1,10 @@
 var routes = {
-  '':          'home.html',     
-  '/':         'home.html',
-  '#/home':    'home.html',                
-  '#/signin':  'signin.html',     
-  '#/about':    'about.html',
-  '#/contact':  'contact.html',
+  '':             'home.html',     
+  '/':            'home.html',
+  '#/home':       'home.html',                
+  '#/signin':     'signin.html',     
+  '#/about_page':  'about.html',
+  '#/contact':    'contact.html',
 };
 
 // This is a function that takes a page path as an argument
