@@ -1,9 +1,8 @@
 var routes = {
-  '':          'index.html',     
-  '/':         'index.html',
-  '#/index':    'index.html',                
-  '#/signin':  'signin.html',        
-  '#/mission':  'mission.html',
+  '':          'home.html',     
+  '/':         'home.html',
+  '#/home':    'home.html',                
+  '#/signin':  'signin.html',     
   '#/about':    'about.html',
   '#/contact':  'contact.html',
 };
