@@ -12,7 +12,7 @@ export default function LoginPanel() {
 
   return (
     <div> 
-      <label>Login Panel</label>
+      <h3>Login Panel</h3>
       <label>Username:</label>
       <input></input>
       <label>Password:</label>
