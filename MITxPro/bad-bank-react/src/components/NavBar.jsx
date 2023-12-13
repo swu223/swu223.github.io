@@ -20,7 +20,7 @@ export default function NavBar({signedIn}) {
           </Nav>}
           {signedIn && <Nav className="mr-auto">
             <Nav.Link>
-              User Dashboard
+              Account Overview
             </Nav.Link>
             <Nav.Link>
               Deposit
