@@ -16,7 +16,6 @@ export const BankProvider = ({ children }) => {
 
   return (    
     <BankContext.Provider value={bankContext}>
-      <h1>inside bank context: {data}</h1>
       {children}
     </BankContext.Provider>
   )
