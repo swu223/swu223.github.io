@@ -8,11 +8,10 @@ import Deposit from './Deposit';
 import Withdraw from './Withdraw';
 import {Button} from 'react-bootstrap';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { BankContext, BankProvider } from '../contexts/BankContext';
+import { BankProvider } from '../contexts/BankContext';
 
 
 export default function Home() {
-  // const {data} = useContext(BankContext);
 
   const appRouter = createBrowserRouter([
     {
