@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import {Button} from 'react-bootstrap';
+import {Button, Card} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import { BankContext } from '../contexts/BankContext';
 
 export default function LoginPanel() {
-  const {data, signedIn, setSignedIn } = useContext(BankContext);
+  const {signedIn, setSignedIn } = useContext(BankContext);
   
   const handleClick = () =>{
     setSignedIn(!signedIn)
@@ -11,13 +12,13 @@ export default function LoginPanel() {
   }
 
   return (
-    <div> 
+    <Card> 
       <h3>Login Panel</h3>
       <label>Username:</label>
       <input></input>
       <label>Password:</label>
       <input></input>
-      <Button onClick={handleClick}>Login</Button>
-    </div>
+      <Button onClick={handleClick} as={Link} to="/account-overview">Login</Button>
+    </Card>
   )
 };
