@@ -19,13 +19,13 @@ export default function NavBar({signedIn}) {
             </Nav.Link>
           </Nav>}
           {signedIn && <Nav className="mr-auto">
-            <Nav.Link>
+            <Nav.Link as={Link} to="/account-overview">
               Account Overview
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link as={Link} to="/deposit">
               Deposit
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link as={Link} to="/withdraw">
               Withdraw
             </Nav.Link>
             <Nav.Link>
