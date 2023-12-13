@@ -68,8 +68,7 @@ export default function Home() {
   return(
     <div>
       <BankProvider>
-      <RouterProvider router={appRouter}/>
-      <h3>inside home: </h3>
+        <RouterProvider router={appRouter}/>
       </BankProvider>
     </div>
   )
