@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import NavBar from '../components/NavBar';
 import General from './General';
 import Login from './Login';
@@ -8,21 +8,18 @@ import Deposit from './Deposit';
 import Withdraw from './Withdraw';
 import {Button} from 'react-bootstrap';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { BankContext, BankProvider } from '../contexts/BankContext';
 
 
 export default function Home() {
-  const [signedIn, setSignedIn] = useState(false);
-
-  const handleClick = () =>{
-    setSignedIn(!signedIn);
-  }
+  // const {data} = useContext(BankContext);
 
   const appRouter = createBrowserRouter([
     {
       path:"/",
       element:
         <>
-          <NavBar signedIn={signedIn}/>
+          <NavBar/>
           <General/>
         </>
     },
@@ -30,7 +27,7 @@ export default function Home() {
       path:"/login",
       element:
         <>
-          <NavBar signedIn={signedIn}/>
+          <NavBar/>
           <Login/>
         </>
     },
@@ -38,7 +35,7 @@ export default function Home() {
       path:"/create-account",
       element:
         <>
-          <NavBar signedIn={signedIn}/>
+          <NavBar/>
           <CreateAccount/>
         </>
     },
@@ -46,7 +43,7 @@ export default function Home() {
       path:"/account-overview",
       element:
         <>
-          <NavBar signedIn={signedIn}/>
+          <NavBar/>
           <AccountOverview/>
         </>
     },
@@ -54,7 +51,7 @@ export default function Home() {
       path:"/deposit",
       element:
         <>
-          <NavBar signedIn={signedIn}/>
+          <NavBar/>
           <Deposit/>
         </>
     },
@@ -62,7 +59,7 @@ export default function Home() {
       path:"/withdraw",
       element:
         <>
-          <NavBar signedIn={signedIn}/>
+          <NavBar/>
           <Withdraw/>
         </>
     },
@@ -70,9 +67,10 @@ export default function Home() {
 
   return(
     <div>
-      
+      <BankProvider>
       <RouterProvider router={appRouter}/>
-      <Button onClick={handleClick}>Login</Button>
+      <h3>inside home: </h3>
+      </BankProvider>
     </div>
   )
 };

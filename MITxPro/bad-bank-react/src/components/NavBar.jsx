@@ -1,9 +1,15 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import { BankContext } from '../contexts/BankContext';
 
-export default function NavBar({signedIn}) {
- 
+export default function NavBar() {
+  const { signedIn, setSignedIn } = useContext(BankContext);
+
+  const logOut = () => {
+    setSignedIn(!signedIn)
+  }
+  
   return(
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -28,7 +34,7 @@ export default function NavBar({signedIn}) {
             <Nav.Link as={Link} to="/withdraw">
               Withdraw
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link onClick={logOut}>
               Signout
             </Nav.Link>
           </Nav>}
