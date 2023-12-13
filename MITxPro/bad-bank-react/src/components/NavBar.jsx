@@ -9,7 +9,7 @@ export default function NavBar() {
   const logOut = () => {
     setSignedIn(!signedIn)
   }
-  
+
   return(
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -34,7 +34,7 @@ export default function NavBar() {
             <Nav.Link as={Link} to="/withdraw">
               Withdraw
             </Nav.Link>
-            <Nav.Link onClick={logOut}>
+            <Nav.Link onClick={logOut} as={Link} to="/">
               Signout
             </Nav.Link>
           </Nav>}
