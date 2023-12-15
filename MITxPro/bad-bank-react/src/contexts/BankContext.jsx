@@ -4,15 +4,15 @@ import axios from 'axios';
 export const BankContext = createContext();
 
 export const BankProvider = ({ children }) => {
-  const [users, setUsers] = useState([]);
+  const [data, setData] = useState([]);
   const [signedIn, setSignedIn] = useState(false);
   
   const bankContext = useMemo(()=>({
-    users,
-    setUsers,
+    data,
+    setData,
     signedIn,
     setSignedIn
-  }), [users, setUsers, signedIn,setSignedIn]);
+  }), [data, setData, signedIn,setSignedIn]);
 
   return (    
     <BankContext.Provider value={bankContext}>
