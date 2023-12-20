@@ -1,9 +1,9 @@
 // simulate getting products from DataBase
 const products = [
-  { name: "Apples_:", country: "Italy", cost: 3, instock: 10 },
-  { name: "Oranges:", country: "Spain", cost: 4, instock: 3 },
-  { name: "Beans__:", country: "USA", cost: 2, instock: 5 },
-  { name: "Cabbage:", country: "USA", cost: 1, instock: 8 },
+  { name: "Apples", country: "Italy", cost: 3, instock: 10 },
+  { name: "Oranges", country: "Spain", cost: 4, instock: 3 },
+  { name: "Beans", country: "USA", cost: 2, instock: 5 },
+  { name: "Cabbage", country: "USA", cost: 1, instock: 8 },
 ];
 //=========Cart=============
 const Cart = (props) => {
@@ -101,16 +101,21 @@ const Products = (props) => {
     }
   );
   console.log(`Rendering Products ${JSON.stringify(data)}`);
-  // Fetch Data
+  // functions for buttons
   const addToCart = (e) => {
     let name = e.target.name;
     let item = items.filter((item) => item.name == name);
+      //change items such that it reflects decrease in stock
+    item[0].instock -= 1;
     console.log(`add to Cart ${JSON.stringify(item)}`);
-    //change items such that it reflects decrease in stock
     setCart([...cart, ...item]);
     //doFetch(query);
   };
+
   const deleteCartItem = (index) => {
+    //add stock back into stock
+    cart[index].instock += 1;
+    //update the cart
     let newCart = cart.filter((item, i) => index != i);
     setCart(newCart);
   };
@@ -127,6 +132,7 @@ const Products = (props) => {
         <Button variant="primary" size="large">
           {item.name}:{item.cost}
         </Button>
+        <div> Only {item.instock} left in stock. </div>
         <input name={item.name} type="submit" onClick={addToCart}></input>
       </li>
     );
@@ -135,17 +141,18 @@ const Products = (props) => {
   // Cart List
   let cartList = cart.map((item, index) => {
     return (
-      <Accordion.Item key={1+index} eventKey={1 + index}>
+      <Accordion.Item key={1+index} eventkey={1 + index}>
       <Accordion.Header>
         {item.name}
       </Accordion.Header>
       <Accordion.Body onClick={() => deleteCartItem(index)}
-        eventKey={1 + index}>
+        eventkey={1 + index}>
         $ {item.cost} from {item.country}
       </Accordion.Body>
     </Accordion.Item>
     );
   });
+
   // Checkout Amount
   let finalList = () => {
     let total = checkOut();
@@ -166,6 +173,7 @@ const Products = (props) => {
     console.log(`total updated to ${newTotal}`);
     return newTotal;
   };
+
   // TODO: implement the restockProducts function
   const restockProducts = (url) => {};
 
@@ -174,7 +182,7 @@ const Products = (props) => {
       <Row>
         <Col>
           <h1>Product List</h1>
-          <ul style={{ listStyleType: "none" }}>{list}</ul>
+          <ul style={{ listStyleType: "none" }} className="d-grid gap-2">{list}</ul>
         </Col>
         <Col>
           <h1>Cart Contents</h1>
