@@ -116,6 +116,7 @@ const Products = (props) => {
   };
   const photos = ["./images/apple.png", "./images/orange.png", "./images/beans.png", "./images/cabbage.png"];
 
+  // Product List
   let list = items.map((item, index) => {
     //let n = index + 1049;
     //let url = "https://picsum.photos/id/" + n + "/50/50";
@@ -130,6 +131,8 @@ const Products = (props) => {
       </li>
     );
   });
+
+  // Cart List
   let cartList = cart.map((item, index) => {
     return (
       <Accordion.Item key={1+index} eventKey={1 + index}>
@@ -143,7 +146,7 @@ const Products = (props) => {
     </Accordion.Item>
     );
   });
-
+  // Checkout Amount
   let finalList = () => {
     let total = checkOut();
     let final = cart.map((item, index) => {
