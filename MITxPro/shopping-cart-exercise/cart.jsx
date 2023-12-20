@@ -114,7 +114,7 @@ const Products = (props) => {
     let newCart = cart.filter((item, i) => index != i);
     setCart(newCart);
   };
-  const photos = ["apple.png", "orange.png", "beans.png", "cabbage.png"];
+  const photos = ["./images/apple.png", "./images/orange.png", "./images/beans.png", "./images/cabbage.png"];
 
   let list = items.map((item, index) => {
     //let n = index + 1049;
