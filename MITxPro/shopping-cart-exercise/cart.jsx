@@ -183,24 +183,51 @@ const Products = (props) => {
   };
   
   // TODO: implement the restockProducts function
-  const restockProducts = (url) => {
-    
-    
+  const restockProducts = (url) => {    
     doFetch(url);
     console.log('data from restock:', data)
     
-    let newItems = data.data.map((item, index) => {
-      let { name, country, cost, instock } = item.attributes;
-      return { name, country, cost, instock };
+    let newItems = data.data.map((item) => {
+      let { name, country, cost, instock} = item.attributes;
+      return { name, country, cost, instock};
     })
     
-    let listNameMatch = true;
-    let listCountryMatch = true;
-    let listPriceMatch = true;
-    //if data[i].attribute.name and country matches the item in the list, then add stock together
-    //if data[i].attribute.name and country is not in list, then add the item to the list.
+    console.log('newItems:', newItems);
     
-    //setItems restockedItems
+    let restockedItems = newItems.map((newItem) => {
+      let nameMatched             = [];
+      let countryNameMatched      = [];
+      let costCountryNameMatched  = [];
+      
+      nameMatched = items.filter((item) => {
+        return item.name == newItem.name
+      })
+      
+      if (nameMatched.length > 0) {
+        countryNameMatched = items.filter((item) =>{
+          return newItem.country == item.country;
+        })
+      } else {
+        return newItem;
+      }
+
+      if (countryNameMatched.length > 0) {
+        costCountryNameMatched = items.filter((item) =>{
+          return newItem.cost === item.cost;
+        })
+      } else {
+        return newItem;
+      }
+      
+      if (costCountryNameMatched.length > 0) {
+        newItem.instock = costCountryNameMatched[0].instock + newItem.instock;
+        return newItem;
+      } else {
+        return newItem;
+      }
+    })
+
+    setItems(restockedItems);
   };
 
   return (
