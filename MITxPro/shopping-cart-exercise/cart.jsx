@@ -101,6 +101,7 @@ const Products = (props) => {
     }
   );
   console.log(`Rendering Products ${JSON.stringify(data)}`);
+  
   // functions for buttons
   const addToCart = (e) => {
     let name = e.target.name;
@@ -119,6 +120,7 @@ const Products = (props) => {
     let newCart = cart.filter((item, i) => index != i);
     setCart(newCart);
   };
+
   const photos = ["./images/apple.png", "./images/orange.png", "./images/beans.png", "./images/cabbage.png"];
 
   // Product List
@@ -155,7 +157,7 @@ const Products = (props) => {
 
   // Checkout Amount
   let finalList = () => {
-    let total = checkOut();
+    let total = checkOutTotal();
     let final = cart.map((item, index) => {
       return (
         <div key={index} index={index}>
@@ -166,7 +168,7 @@ const Products = (props) => {
     return { final, total };
   };
 
-  const checkOut = () => {
+  const checkOutTotal = () => {
     let costs = cart.map((item) => item.cost);
     const reducer = (accum, current) => accum + current;
     let newTotal = costs.reduce(reducer, 0);
@@ -174,8 +176,32 @@ const Products = (props) => {
     return newTotal;
   };
 
+  const checkOut = () => {
+    // future implement: bring user to checkout page
+    alert(`Your total will be: $${finalList().total}`)
+    setCart([]);
+  };
+  
   // TODO: implement the restockProducts function
-  const restockProducts = (url) => {};
+  const restockProducts = (url) => {
+    
+    
+    doFetch(url);
+    console.log('data from restock:', data)
+    
+    let newItems = data.data.map((item, index) => {
+      let { name, country, cost, instock } = item.attributes;
+      return { name, country, cost, instock };
+    })
+    
+    let listNameMatch = true;
+    let listCountryMatch = true;
+    let listPriceMatch = true;
+    //if data[i].attribute.name and country matches the item in the list, then add stock together
+    //if data[i].attribute.name and country is not in list, then add the item to the list.
+    
+    //setItems restockedItems
+  };
 
   return (
     <Container>
