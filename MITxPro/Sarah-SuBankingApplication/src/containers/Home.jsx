@@ -6,9 +6,11 @@ import CreateAccount from './CreateAccount';
 import AccountOverview from './AccountOverview';
 import Deposit from './Deposit';
 import Withdraw from './Withdraw';
+import AllData from './AllData';
 import {Button} from 'react-bootstrap';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { BankProvider } from '../contexts/BankContext';
+
 
 
 export default function Home() {
@@ -60,6 +62,14 @@ export default function Home() {
         <>
           <NavBar/>
           <Withdraw/>
+        </>
+    },
+    {
+      path:"/alldata",
+      element:
+        <>
+          <NavBar/>
+          <AllData/>
         </>
     },
   ])
