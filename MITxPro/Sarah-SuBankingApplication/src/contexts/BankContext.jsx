@@ -7,6 +7,9 @@ export const BankProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [signedIn, setSignedIn] = useState(false);
   
+  // in the future, implement a way to get data from a database
+
+  // exports functions to be able to use in general.
   const bankContext = useMemo(()=>({
     data,
     setData,
