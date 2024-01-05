@@ -76,19 +76,7 @@ export default function CreateAccount() {
       }
     }
     console.log(newAccount);
-    //check if user is part of the existing user list
-    // let sameUser = data.filter((account) => {
-    //   //check name
-    //   return account.user.name === name;
-    //   //check email
-    //   // account.user.email == email;
-    // })
-    // console.log(sameUser);
-    // if(sameUser){
-    //   setStatus('User already exists');
-    //   return;
-    // }
-    // if user is not part of existing user list, then add them
+    
     setData([...data, newAccount]);
     console.log(data);
     setShow(false);
