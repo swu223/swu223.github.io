@@ -7,7 +7,7 @@ export default function NavBar() {
   const { signedIn, setSignedIn } = useContext(BankContext);
 
   const logOut = () => {
-    setSignedIn(!signedIn)
+    setSignedIn(false);
   }
 
   // const setHomePage = () =>{
