@@ -46,13 +46,6 @@ export default function LoginPanel() {
     return true;
   }
 
-  // const loadAccountPage = async () => {
-  //   const confirmed = await (signedIn === true)? true:false;
-  //   if (confirmed) {
-  //     navigate("/create-account");
-  //   }
-  //   return null;
-  // }
 
   const handleClick = () =>{
     console.log('starting signin', signedIn);
