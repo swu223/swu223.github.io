@@ -18,6 +18,7 @@ export default function CreateAccount() {
   }
 
   const validate = (field, label)=>{
+    // error if there is nothing input
     if (!field) {
       setStatus('Error: ' + label);
       setTimeout(() => setStatus(''),3000);
@@ -38,19 +39,59 @@ export default function CreateAccount() {
       return false;
     }
 
+    //error if username has been used before
+    if (label === 'name' && data.filter((acc) => acc.user.name === field).length>0){
+      setStatus('Error: name already exists in database. Please login with your existing account.');
+      setTimeout(() => setStatus(''),3000)
+      return false;
+    }
+    //error if user email has been used before. 
+    if (label === 'email' && data.filter((acc) => acc.user.email === field).length>0){
+      setStatus('Error: email already exists in database. Please login with your existing account.');
+      setTimeout(() => setStatus(''),3000)
+      return false;
+    }
+
     return true;
   }
 
   const handleCreate = () =>{
+    console.log('initial data:',data)
     console.log(name, email, password);
     if (!validate(name,     'name')) return;
     if (!validate(email,    'email')) return;
     if (!validate(password, 'password')) return;
-    let numUser = data.length + 1;
+    let currentDate = new Date();
+    let newAccount = {
+      // takes the person's name and addes the Year, Month(with 0 = January and changed to 2 digits), and Day(changed to 2 digits), and then gets rid of blank spaces
+      account_id  : (name + currentDate).replaceAll(/[^A-Z0-9]/ig, ''),
+      user        : {
+        name:name,
+        email:email,
+        password:password,
+        date_created:currentDate
+      },
+      balance     : {
+        current_balance: 0,
+        transactions:[]
+      }
+    }
+    console.log(newAccount);
     //check if user is part of the existing user list
-    if(data.find((user) => user.id === numUser)) return;
+    // let sameUser = data.filter((account) => {
+    //   //check name
+    //   return account.user.name === name;
+    //   //check email
+    //   // account.user.email == email;
+    // })
+    // console.log(sameUser);
+    // if(sameUser){
+    //   setStatus('User already exists');
+    //   return;
+    // }
     // if user is not part of existing user list, then add them
-    
+    setData([...data, newAccount]);
+    console.log(data);
     setShow(false);
   }
 
