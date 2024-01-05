@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { BankContext } from '../contexts/BankContext';
 
 export default function LoginPanel() {
-  const {data, signedIn, setSignedIn}  = useContext(BankContext);
+  const {data, signedIn, setSignedIn, setUserID}  = useContext(BankContext);
   const [status, setStatus]       = useState('');
   const [email, setEmail]         = useState('');
   const [password, setPassword]   = useState('');
@@ -51,8 +51,13 @@ export default function LoginPanel() {
 
     if (!validate(email,    'email')) return;
     if (!validate(password, 'password')) return;
-        
+    
+    let userID = data.find((acc) => {
+      return acc.user.email === email && acc.user.password=== password
+    });
+
     setSignedIn(true);
+    setUserID(userID.account_id)
     navigate("/account-overview")
   }
 
