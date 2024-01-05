@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { BankContext } from '../contexts/BankContext';
 
 export default function LoginPanel() {
-  const {data} = useContext(BankContext);
-  const {signedIn, setSignedIn}  = useContext(BankContext);
+  const {data, signedIn, setSignedIn}  = useContext(BankContext);
   const [status, setStatus]       = useState('');
   const [email, setEmail]         = useState('');
   const [password, setPassword]   = useState('');
