@@ -56,7 +56,6 @@ export default function CreateAccount() {
   }
 
   const handleCreate = () =>{
-    console.log('initial data:',data)
     console.log(name, email, password);
     if (!validate(name,     'name')) return;
     if (!validate(email,    'email')) return;
