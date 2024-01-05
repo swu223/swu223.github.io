@@ -6,6 +6,7 @@ export const BankContext = createContext();
 export const BankProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [signedIn, setSignedIn] = useState(false);
+  const [userID, setUserID] = useState('');
   
   // in the future, implement a way to get data from a database
 
@@ -14,8 +15,10 @@ export const BankProvider = ({ children }) => {
     data,
     setData,
     signedIn,
-    setSignedIn
-  }), [data, setData, signedIn,setSignedIn]);
+    setSignedIn,
+    userID,
+    setUserID
+  }), [data, setData, signedIn,setSignedIn, userID, setUserID]);
 
   return (    
     <BankContext.Provider value={bankContext}>
