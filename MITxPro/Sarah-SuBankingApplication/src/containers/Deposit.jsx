@@ -1,9 +1,11 @@
 import React from 'react';
+import {Card} from 'react-bootstrap';
+import TransactionPanel from '../components/TransactionPanel';
 
 export default function Deposit() {
   return (
-    <div> Deposit money
-
-    </div>
+    <Card>
+    <TransactionPanel></TransactionPanel>
+    </Card>
   )
 };
