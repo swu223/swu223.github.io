@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { BankContext } from '../contexts/BankContext';
+import bad_bank_logo from '../bad_bank_logo.jpg'
 
 export default function NavBar() {
   const { signedIn, setSignedIn } = useContext(BankContext);
@@ -13,7 +14,16 @@ export default function NavBar() {
   return(
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand as={Link} to="/" href="#home" >BadBank</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/" href="#home" >
+          <img
+            alt=""
+            src={bad_bank_logo}
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{' '}
+          BadBank
+        </Navbar.Brand>
         <Navbar.Toggle/>
         <Navbar.Collapse id="responsive-navbar-nav">
           {!signedIn && 
