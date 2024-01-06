@@ -1,7 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React from 'react';
 import {Button, Card} from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-import { BankContext } from '../contexts/BankContext';
 
 export default function TransactionPanel({
   current_balance,
