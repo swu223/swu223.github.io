@@ -6,16 +6,16 @@ import { BankContext } from '../contexts/BankContext';
 export default function TransactionPanel({
   current_balance,
   handleClick,
-  handleChange
+  handleChange,
+  noInput
 }) {
-  const value=0;
 
   return (
     <Card>
       <h1>Current Balance: ${current_balance}</h1>
       Deposit
       <input type="number" step=".01" onChange={handleChange}></input>
-      <Button onClick={handleClick}>Submit</Button>
+      <Button onClick={handleClick} disabled={noInput}>Submit</Button>
     </Card>
   )
 };
