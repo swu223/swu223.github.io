@@ -1,9 +1,13 @@
-import React from 'react';
+import React from 'react';+
+import {Card} from 'react-bootstrap';
+import TransactionPanel from '../components/TransactionPanel';
+
 
 export default function Withdraw() {
   return (
-    <div> Withdraw money
-
-    </div>
+    <Card>
+    <TransactionPanel>
+    </TransactionPanel>
+    </Card>
   )
 };
