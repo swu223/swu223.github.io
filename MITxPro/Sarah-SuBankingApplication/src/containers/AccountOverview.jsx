@@ -8,14 +8,15 @@ export default function AccountOverview() {
 
   const userData = data.find((acc)=> acc.account_id === userID);
   console.log(userData)
-  console.log("current balance", userData.balance.current_balance)
+  const {account_id, balance:{current_balance, transactions}, user} = userData;
 
   return (
     <>
     <Card>
       <h1>Account Overview</h1>
-      <h2>Current Balance: </h2>
-      <h2>{userData.balance.current_balance}</h2>
+      <h2>Welcome {user.name}!</h2>
+      <h2>Your current Balance: </h2>
+      <h2>${current_balance}</h2>
     </Card>
     <Card>
       <h1>History of transactions</h1>
