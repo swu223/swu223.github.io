@@ -4,7 +4,21 @@ import axios from 'axios';
 export const BankContext = createContext();
 
 export const BankProvider = ({ children }) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([
+    {
+      account_id  : "sarahoneSatJan062024104836GMT0500EasternStandardTime",
+      user        : {
+        name:"sarah one",
+        email:"sarah@sarah.com",
+        password:"Sarah2024!",
+        date_created:"Sat Jan 06 2024 10:48:36 GMT-0500 (Eastern Standard Time)"
+      },
+      balance     : {
+        current_balance: 0,
+        transactions:[]
+      }
+    }
+]);
   const [signedIn, setSignedIn] = useState(false);
   const [userID, setUserID] = useState('');
   

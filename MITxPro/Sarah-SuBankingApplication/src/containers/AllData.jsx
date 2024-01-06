@@ -8,7 +8,7 @@ export default function AllData() {
   return (
     <>
     {
-      data.map((acc) => <Card>{JSON.stringify(acc)}</Card>)
+      data.map((acc, i) => <Card key={i}>{JSON.stringify(acc)}</Card>)
     }
     </>
   )
