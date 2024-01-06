@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { BankContext } from '../contexts/BankContext';
@@ -9,11 +9,6 @@ export default function NavBar() {
   const logOut = () => {
     setSignedIn(false);
   }
-
-  // const setHomePage = () =>{
-  //   if(signedIn) {return "/account-overview"}
-  //   else {return "/"};
-  // }
 
   return(
     <Navbar expand="lg" className="bg-body-tertiary">
