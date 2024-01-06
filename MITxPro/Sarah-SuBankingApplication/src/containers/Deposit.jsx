@@ -9,7 +9,6 @@ export default function Deposit() {
   const [status, setStatus] = useState('');
   
   const userData = data.find((acc)=> acc.account_id === userID);
-  console.log("found user: ",userData)
   const {account_id, balance:{current_balance, transactions}, user} = userData;
 
   const transactionType = "Deposit";
@@ -33,7 +32,7 @@ export default function Deposit() {
   // submit amount to account function
   const handleClick = (e) => {
     e.preventDefault();
-    validate(amount);
+    if (!validate(amount)) return;
 
     let newTransaction = {
       type: transactionType,
@@ -61,7 +60,10 @@ export default function Deposit() {
     })
     console.log("updateData: ",updateData);
     //updates balance
+    setStatus(`You have successfully deposited $${amount}`)
+    setTimeout(() => setStatus(''),3000);
     setData(updateData);
+    
   }
 
   return (
