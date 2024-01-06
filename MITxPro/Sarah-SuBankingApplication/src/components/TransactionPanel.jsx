@@ -4,14 +4,18 @@ import { useNavigate } from 'react-router-dom';
 import { BankContext } from '../contexts/BankContext';
 
 export default function TransactionPanel({
-  current_balance
+  current_balance,
+  handleClick,
+  handleChange
 }) {
+  const value=0;
+
   return (
     <Card>
       <h1>Current Balance: ${current_balance}</h1>
       Deposit
-      <input type="number"></input>
-      <input type ="submit"></input>
+      <input type="number" step=".01" onChange={handleChange}></input>
+      <Button onClick={handleClick}>Submit</Button>
     </Card>
   )
 };
