@@ -19,6 +19,7 @@ export default function AccountOverview() {
     </Card>
     <Card>
       <h1>History of transactions</h1>
+      {/* history of transactions can be another component. */}
     </Card>
     </>
   )
