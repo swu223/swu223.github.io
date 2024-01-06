@@ -6,7 +6,7 @@ import { BankContext } from '../contexts/BankContext';
 export default function TransactionPanel() {
   return (
     <Card>
-      Current Balance:
+      <h1>Current Balance:</h1>
       Deposit
       <input type="number"></input>
       <input type ="submit"></input>
