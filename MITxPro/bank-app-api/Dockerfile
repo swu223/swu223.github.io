@@ -1,5 +1,5 @@
 FROM node:18
-WORKDIR /usr/src/bank-app-server
+WORKDIR /usr/src/bank-app-api
 COPY package*.json ./
 RUN npm install
 COPY . .
