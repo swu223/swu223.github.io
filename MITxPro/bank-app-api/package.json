@@ -1,5 +1,5 @@
 {
-  "name": "bank-app-server",
+  "name": "bank-app-api",
   "version": "1.0.0",
   "description": "server and api to the banking app",
   "main": "server.mjs",
