@@ -4,7 +4,8 @@
   "description": "server and api to the banking app",
   "main": "server.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.mjs"
   },
   "author": "sarah w su",
   "license": "MIT",
