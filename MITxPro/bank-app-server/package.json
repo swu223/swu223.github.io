@@ -1,0 +1,11 @@
+{
+  "name": "bank-app-server",
+  "version": "1.0.0",
+  "description": "server and api to the banking app",
+  "main": "server.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sarah w su",
+  "license": "MIT"
+}
