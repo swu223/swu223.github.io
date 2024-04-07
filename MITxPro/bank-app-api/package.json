@@ -5,7 +5,7 @@
   "main": "server.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.mjs"
+    "dev": "docker-compose up -d mongodb_container && nodemon server.mjs"
   },
   "author": "sarah w su",
   "license": "MIT",
