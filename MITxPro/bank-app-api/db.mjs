@@ -8,7 +8,7 @@ const connect = () =>{
   });
   mongoose.connection.on("error", (err) => {
     console.error("Error connection to database  ", err);
-  }
+  });
 }
 
 const disconnect = () => {
