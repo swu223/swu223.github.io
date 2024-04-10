@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const connect = () =>{
-  const url = porocess.env.MONGO_CONNECTION_STRING;
+  const url = process.env.MONGO_CONNECTION_STRING;
   mongoose.connect(url);
   mongoose.connection.once("open", async () => {
     console.log("Connected to database");
