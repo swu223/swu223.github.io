@@ -9,8 +9,6 @@ import { UserController } from './entities/user.controller.mjs';
 // Configure dotenv
 dotenv.config();
 
-//connect to MongoDB container
-db.connect();
 
 // initialize userController
 const userControl = new UserController();
@@ -23,7 +21,7 @@ app.get('/', (req,res)=>{
 
 app.post('/signup', async (req, res)=>{
   const response = await userControl.signup(req.body.user);
-  res.send(response)
+  res.send(JSON.stringify(response))
 })
 
 app.post('/test', async (req,res) => {
