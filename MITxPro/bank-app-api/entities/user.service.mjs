@@ -1,6 +1,8 @@
+import { UserRepository } from "./user.repository.mjs";
+
 export class UserService {
   constructor () {
-
+    this.userRepository = new UserRepository();
   }
 
   async validateUser(user) {
@@ -12,7 +14,12 @@ export class UserService {
   }
 
   async signup(user) {
-
+    const errors = await this.validateUser(user);
+    console.log("service level errors:", errors)
+    if (Object.keys(errors).length === 0) {
+      // call repository level
+    }
+    return { errors }
   }
 
   async login(user) {
