@@ -24,7 +24,7 @@ export class UserRepository {
     } 
     catch (err) {
       console.error(err);
-      return error;
+      return err;
     }
   }
 }
