@@ -1,4 +1,5 @@
 import { UserRepository } from "./user.repository.mjs";
+// often, this service layer authorizes user
 
 export class UserService {
   constructor () {
@@ -19,6 +20,7 @@ export class UserService {
     if (Object.keys(errors).length === 0) {
       // call repository level
       const response = await this.userRepository.signup(user);
+      return response;
     }
     return { errors }
   }
