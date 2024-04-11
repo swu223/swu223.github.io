@@ -1,5 +1,8 @@
+//repository layer interacts with the db
 import db from '../db.mjs'
 import { User } from './user.model.mjs';
+import * as bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 export class UserRepository {
   constructor() {
@@ -8,9 +11,18 @@ export class UserRepository {
 
   async signup (user) {
     try{
-      let userData = await User.create(user);;
-      console.log(userData);
-    } catch (err) {
+      const salt = await bcrypt.genSalt(10);
+      user.password = await bcrypt.hash(user.password, salt);
+      let userData = await User.create(user);
+      const token = jwt.sign({
+        username:userData.username,
+        id: userData._id,
+        name: userData.name
+      }, process.env.JWT_SECRET);
+      console.log('userData:',userData);
+      return {token}
+    } 
+    catch (err) {
       console.error(err);
       return error;
     }
