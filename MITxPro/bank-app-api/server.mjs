@@ -5,6 +5,7 @@ const app = express();
 const PORT = 3000;
 import db from './db.mjs';
 import { UserController } from './entities/user.controller.mjs';
+import { authorizeRequest } from './middleware/jwtConfig.mjs';
 
 // Configure dotenv
 dotenv.config();
@@ -24,7 +25,7 @@ app.post('/signup', async (req, res)=>{
   res.send(JSON.stringify(response))
 })
 
-app.post('/test', async (req,res) => {
+app.post('/test', authorizeRequest, (req,res) => {
   res.send('This is hard')
 })
 
