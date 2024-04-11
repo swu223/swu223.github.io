@@ -18,6 +18,7 @@ export class UserService {
     console.log("service level errors:", errors)
     if (Object.keys(errors).length === 0) {
       // call repository level
+      const response = await this.userRepository.signup(user);
     }
     return { errors }
   }
