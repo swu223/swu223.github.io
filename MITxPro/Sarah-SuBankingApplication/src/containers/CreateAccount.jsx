@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 // import CreateAccountForm from '../components/CreateAccountForm';
 import { Card, Button } from 'react-bootstrap';
 import { BankContext } from '../contexts/BankContext';
+import { handleSignupDB } from '../utils/endpoints/auth';
 
 export default function CreateAccount() {
   const {data, setData } = useContext(BankContext);
@@ -75,8 +76,8 @@ export default function CreateAccount() {
         transactions:[]
       }
     }
-    console.log(newAccount);
-    
+    console.log("create account:",newAccount);
+    handleSignupDB(newAccount);
     setData([...data, newAccount]);
     console.log(data);
     setShow(false);
