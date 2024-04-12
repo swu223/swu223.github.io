@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 import db from './db.mjs';
 import { UserController } from './entities/user.controller.mjs';
 import { authorizeRequest } from './middleware/jwtConfig.mjs';
