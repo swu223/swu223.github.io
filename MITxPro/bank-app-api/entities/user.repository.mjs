@@ -19,7 +19,10 @@ export class UserRepository {
         name: userData.name
       }, process.env.JWT_SECRET);
       console.log('userData:',userData);
-      return {token}
+      return {
+        id: userData._id,
+        token
+      }
     } 
     catch (err) {
       console.error(err);
