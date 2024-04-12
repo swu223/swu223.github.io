@@ -15,7 +15,6 @@ export class UserRepository {
       user.password = await bcrypt.hash(user.password, salt);
       let userData = await User.create(user);
       const token = jwt.sign({
-        username:userData.username,
         id: userData._id,
         name: userData.name
       }, process.env.JWT_SECRET);

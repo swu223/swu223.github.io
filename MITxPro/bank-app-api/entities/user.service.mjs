@@ -8,8 +8,8 @@ export class UserService {
 
   async validateUser(user) {
     const errors = {};
-    if (!user.username) {
-      errors.username = "username cannot be empty";
+    if (!user.name) {
+      errors.name = "name cannot be empty";
     }
     return errors;
   }
