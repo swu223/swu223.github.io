@@ -61,25 +61,22 @@ export default function CreateAccount() {
     if (!validate(name,     'name')) return;
     if (!validate(email,    'email')) return;
     if (!validate(password, 'password')) return;
-    let currentDate = new Date();
+    // let currentDate = new Date();
     let newAccount = {
+      // Commented out the following because MongoDB can automatically create an object_id
       // takes the person's name and addes the Year, Month(with 0 = January and changed to 2 digits), and Day(changed to 2 digits), and then gets rid of blank spaces
-      account_id  : (name + currentDate).replaceAll(/[^A-Z0-9]/ig, ''),
-      user        : {
+      // account_id  : (name + currentDate).replaceAll(/[^A-Z0-9]/ig, ''),
+      // user        : {
         name:name,
         email:email,
         password:password,
-        date_created:currentDate
-      },
-      balance     : {
-        current_balance: 0,
-        transactions:[]
-      }
+        // date_created:currentDate
+      // }
     }
     console.log("create account:",newAccount);
     handleSignupDB(newAccount);
-    setData([...data, newAccount]);
-    console.log(data);
+    // setData([...data, newAccount]);
+    // console.log(data);
     setShow(false);
   }
 
