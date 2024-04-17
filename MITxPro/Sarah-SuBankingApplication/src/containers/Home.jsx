@@ -9,6 +9,7 @@ import Withdraw from './Withdraw';
 import AllData from './AllData';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { BankProvider } from '../contexts/BankContext';
+import PrivateRoute from '../components/PrivateRoute';
 
 
 
@@ -42,34 +43,34 @@ export default function Home() {
     {
       path:"/account-overview",
       element:
-        <>
+        <PrivateRoute>
           <NavBar/>
           <AccountOverview/>
-        </>
+        </PrivateRoute>
     },
     {
       path:"/deposit",
       element:
-        <>
+        <PrivateRoute>
           <NavBar/>
           <Deposit/>
-        </>
+        </PrivateRoute>
     },
     {
       path:"/withdraw",
       element:
-        <>
+        <PrivateRoute>
           <NavBar/>
           <Withdraw/>
-        </>
+        </PrivateRoute>
     },
     {
       path:"/alldata",
       element:
-        <>
+        <PrivateRoute>
           <NavBar/>
           <AllData/>
-        </>
+        </PrivateRoute>
     },
   ])
 
