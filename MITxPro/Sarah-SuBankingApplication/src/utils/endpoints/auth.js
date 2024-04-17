@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { BankContext, data, setData } from '../../contexts/BankContext';
 
 const handleSignupDB = async (acc) => {
   try {
@@ -23,28 +24,14 @@ const handleSignupDB = async (acc) => {
 
 const handleLoginDB = async (loginInfo) => {
   try {
+    //if localStorage has a token already, just return true;
     if (localStorage.getItem("token")) {
-      // if you just created acct, then make config wtih token and send to db and check if it matches
-      const config = {
-        headers:{
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      }
-      const response = await axios.post(
-        "http://localhost:3001/checktoken", 
-        config, 
-        {loginInfo}
-      )
-      if (response) {
-        return true
-      }
-      return false;
+      return true;
     } else {
+      //if localStorage does not have token, then send login info to DB
       //send login info to database
-      const response = await axios.post("http://localhost:3001/login", {
-        loginInfo
-      })
-      //if correct, receive a token
+      const response = await axios.post("http://localhost:3001/login", {loginInfo})
+      //if loginInfo is correct, we will receive a token
       if (response.data.token) {
         localStorage.setItem("token", response.data.token)
         return true
@@ -52,8 +39,6 @@ const handleLoginDB = async (loginInfo) => {
       // if not, return false
       return false 
     }
-    
-  
   } catch (err) {
     console.error(err);
     return false
@@ -64,14 +49,22 @@ const handleLogoutDB = async (acc) => {
   // remove token
 }
 
-const checkToken = async (token, userInfo) => {
-  console.log(token, userInfo)
-  try {
-
+const getData = async () => {
+  try{
+    // asssumes token exists. set token data in the config
+    const config = {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    }
+    // wait for response from db
+    const response = await axios.get("http://localhost:3001/myfavs", config);
+    // puts the data into a data variable and returns it
+    const data = response.data;
+    return data;
   } catch (err) {
-    console.error(err)
-    return false
+    console.error(err);
   }
 }
 
-export {handleSignupDB, handleLogoutDB, handleLoginDB, checkToken}
+export {handleSignupDB, handleLogoutDB, handleLoginDB, getData}
