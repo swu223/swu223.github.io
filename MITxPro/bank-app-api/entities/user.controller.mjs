@@ -16,7 +16,11 @@ export class UserController {
 
 
   async login (user) {
-    console.log('Controller: login')
+    console.log('Controller level login')
   }
 
+  async getData () {
+    const response = await this.userService.getData();
+    return response;
+  }
 }

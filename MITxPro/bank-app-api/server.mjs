@@ -24,14 +24,18 @@ app.get('/', (req,res)=>{
 })
 
 app.post('/signup', async (req, res)=>{
-  console.log("server level user: ", req.body.acc)
-  const response = await userControl.signup(req.body.acc);
+  console.log("server level user: ", req.body.user)
+  const response = await userControl.signup(req.body.user);
   res.send(JSON.stringify(response))
 })
 
-app.get('/mydata', authorizeRequest, (req,res) => {
-  console.log('my data will go here');
-  res.send('here is data from server')
+app.get('/login', async (req, res) =>{
+  console.log('checking user: ', req.body.user)
+})
+
+app.get('/mydata', authorizeRequest, async (req,res) => {
+  const response = await userControl.getData();
+  res.send(JSON.stringify(response));
 })
 
 app.post('/test', authorizeRequest, (req,res) => {

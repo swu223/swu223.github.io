@@ -29,4 +29,20 @@ export class UserRepository {
       return err;
     }
   }
+
+  async login (user) {
+    console.log('repo level login')
+  }
+
+  async getData () {
+    try {
+      const allData = await User.find();
+      console.log('repo level getData', allData)
+      return allData;
+    }
+    catch (err) {
+      console.error(err);
+      return err;
+    }
+  }
 }

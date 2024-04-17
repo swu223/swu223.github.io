@@ -3,7 +3,7 @@ import { UserRepository } from "./user.repository.mjs";
 
 export class UserService {
   constructor () {
-    this.userRepository = new UserRepository();
+    this.userRepo = new UserRepository();
   }
 
   async validateUser(user) {
@@ -15,17 +15,23 @@ export class UserService {
   }
 
   async signup(user) {
+    console.log()
     const errors = await this.validateUser(user);
     console.log("service level errors:", errors)
     if (Object.keys(errors).length === 0) {
       // call repository level
-      const response = await this.userRepository.signup(user);
+      const response = await this.userRepo.signup(user);
       return response;
     }
     return { errors }
   }
 
   async login(user) {
+    console.log( 'service level login: ')
+  }
 
+  async getData () {
+    const response = await this.userRepo.getData();
+    return response;
   }
 }
