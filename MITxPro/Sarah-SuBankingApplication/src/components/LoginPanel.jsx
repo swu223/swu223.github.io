@@ -2,9 +2,10 @@ import React, { useState, useContext } from 'react';
 import {Button, Card} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { BankContext } from '../contexts/BankContext';
+import { getData, handleLoginDB } from '../utils/endpoints/auth';
 
 export default function LoginPanel() {
-  const {data, signedIn, setSignedIn, setUserID}  = useContext(BankContext);
+  const {data, setData, signedIn, setSignedIn, setUserID}  = useContext(BankContext);
   const [status, setStatus]       = useState('');
   const [email, setEmail]         = useState('');
   const [password, setPassword]   = useState('');
@@ -49,16 +50,32 @@ export default function LoginPanel() {
   const handleClick = () =>{
     console.log('starting signin', signedIn);
 
-    if (!validate(email,    'email')) return;
-    if (!validate(password, 'password')) return;
+    // if (!validate(email,    'email')) return;
+    // if (!validate(password, 'password')) return;
     
-    let userID = data.find((acc) => {
-      return acc.user.email === email && acc.user.password=== password
-    });
+    // let userID = data.find((acc) => {
+    //   return acc.user.email === email && acc.user.password=== password
+    // });
 
+    let loginInfo = {
+      email:email, 
+      password:password
+    }
+
+    if(handleLoginDB(loginInfo)) {
+      try{
+      const accData = getData();
+      console.log(accData)
+      // setData(accData);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    
     setSignedIn(true);
-    setUserID(userID.account_id)
-    navigate("/account-overview")
+    // setUserID(userID.account_id)
+    // navigate("/account-overview")
   }
 
   return (
