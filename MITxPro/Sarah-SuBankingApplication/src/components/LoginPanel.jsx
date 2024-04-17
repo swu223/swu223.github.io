@@ -47,7 +47,7 @@ export default function LoginPanel() {
   }
 
 
-  const handleClick = () =>{
+  const handleClick = async () =>{
     console.log('starting signin', signedIn);
 
     // if (!validate(email,    'email')) return;
@@ -64,15 +64,15 @@ export default function LoginPanel() {
 
     if(handleLoginDB(loginInfo)) {
       try{
-      const accData = getData();
-      console.log(accData)
+      const accData = await getData();
+      console.log("login panel level:", accData)
       // setData(accData);
       } catch (err) {
         console.error(err);
       }
     }
 
-    
+    //commented out the below so far
     setSignedIn(true);
     // setUserID(userID.account_id)
     // navigate("/account-overview")
