@@ -29,12 +29,14 @@ app.post('/signup', async (req, res)=>{
   res.send(JSON.stringify(response))
 })
 
-app.get('/login', async (req, res) =>{
+app.post('/login', async (req, res) =>{
   console.log('checking user: ', req.body.user)
 })
 
-app.get('/mydata', authorizeRequest, async (req,res) => {
-  const response = await userControl.getData();
+app.get('/mydata', authorizeRequest, async (req, res) => {
+  console.log("server", req.header('authorization'))
+  console.log("server id: ", req.userID)
+  const response = await userControl.getData(req.userID);
   res.send(JSON.stringify(response));
 })
 
