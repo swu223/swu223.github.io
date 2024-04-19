@@ -2,7 +2,8 @@ import React, { useState, useContext } from 'react';
 import {Button, Card} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { BankContext } from '../contexts/BankContext';
-import { getData, handleLoginDB } from '../utils/endpoints/auth';
+import { handleLoginDB } from '../utils/endpoints/auth';
+import { getData } from '../utils/endpoints/getData';
 
 export default function LoginPanel() {
   const {data, setData, signedIn, setSignedIn, setUserID}  = useContext(BankContext);
@@ -31,13 +32,13 @@ export default function LoginPanel() {
       return false;
     }
 
-    if (label === 'email' && data.filter((acc) => acc.user.email === field).length===0){
+    if (label === 'email' && data.filter((acc) => acc.email === field).length===0){
       setStatus('Error: email does not exist in our records. Please create an account.');
       setTimeout(() => setStatus(''),3000)
       return false;
     }
 
-    if (label === 'password' && data.filter((acc) => acc.user.password === field).length===0){
+    if (label === 'password' && data.filter((acc) => acc.password === field).length===0){
       setStatus('Error: Email and password do not match. Please try again.');
       setTimeout(() => setStatus(''),3000)
       return false;
@@ -61,19 +62,13 @@ export default function LoginPanel() {
       email:email, 
       password:password
     }
-
-    if(handleLoginDB(loginInfo)) {
-      try{
-      const accData = await getData();
-      console.log("login panel level:", accData)
-      // setData(accData);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-
+    
+    let response = await handleLoginDB(loginInfo);
+    let data = await getData();
+    setData(data);
+    setUserID(data._id)
     //commented out the below so far
-    setSignedIn(true);
+    setSignedIn(response);
     // setUserID(userID.account_id)
     // navigate("/account-overview")
   }

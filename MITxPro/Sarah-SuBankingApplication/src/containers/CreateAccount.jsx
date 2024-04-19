@@ -5,7 +5,7 @@ import { BankContext } from '../contexts/BankContext';
 import { handleSignupDB } from '../utils/endpoints/auth';
 
 export default function CreateAccount() {
-  const {data, setData } = useContext(BankContext);
+  const {data, setUserID } = useContext(BankContext);
   const [show, setShow]           = useState(true);
   const [status, setStatus]       = useState('');
   const [name, setName]           = useState('');
@@ -41,13 +41,13 @@ export default function CreateAccount() {
     }
 
     //error if username has been used before
-    if (label === 'name' && data.filter((acc) => acc.user.name === field).length>0){
+    if (label === 'name' && data.filter((acc) => acc.name === field).length>0){
       setStatus('Error: name already exists in database. Please login with your existing account.');
       setTimeout(() => setStatus(''),3000)
       return false;
     }
     //error if user email has been used before. 
-    if (label === 'email' && data.filter((acc) => acc.user.email === field).length>0){
+    if (label === 'email' && data.filter((acc) => acc.email === field).length>0){
       setStatus('Error: email already exists in database. Please login with your existing account.');
       setTimeout(() => setStatus(''),3000)
       return false;
@@ -67,14 +67,15 @@ export default function CreateAccount() {
       // takes the person's name and addes the Year, Month(with 0 = January and changed to 2 digits), and Day(changed to 2 digits), and then gets rid of blank spaces
       // account_id  : (name + currentDate).replaceAll(/[^A-Z0-9]/ig, ''),
       // user        : {
-        name:name,
+        name: name,
         email:email,
         password:password,
         // date_created:currentDate
       // }
     }
     console.log("create account:",newAccount);
-    handleSignupDB(newAccount);
+    let userID = handleSignupDB(newAccount);
+    setUserID(userID);
     // setData([...data, newAccount]);
     // console.log(data);
     setShow(false);
