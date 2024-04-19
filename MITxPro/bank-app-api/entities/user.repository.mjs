@@ -34,11 +34,19 @@ export class UserRepository {
     console.log('repo level login')
   }
 
-  async getData () {
+  async getData (user) {
     try {
-      const allData = await User.find();
-      console.log('repo level getData', allData)
-      return allData;
+      const {_id, name, balance:{current_balance,transactions}} = await User.findById(user);
+      const relData = {
+        _id,
+        name, 
+        balance:{
+          current_balance,
+          transactions
+        }
+      }
+      console.log('repo level getData', relData)
+      return relData;
     }
     catch (err) {
       console.error(err);

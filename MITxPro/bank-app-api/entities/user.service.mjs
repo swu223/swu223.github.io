@@ -30,8 +30,8 @@ export class UserService {
     console.log( 'service level login: ')
   }
 
-  async getData () {
-    const response = await this.userRepo.getData();
+  async getData (user) {
+    const response = await this.userRepo.getData(user);
     return response;
   }
 }
