@@ -9,6 +9,7 @@ export default function Withdraw() {
   const [status, setStatus] = useState('');
   
   const userData = data.find((acc)=> acc.account_id === userID);
+   // to do, fix the way to deconstruct the data
   const {account_id, balance:{current_balance, transactions}, user} = userData;
 
   const transactionType = "Withdrawal";

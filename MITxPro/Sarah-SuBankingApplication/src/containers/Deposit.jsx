@@ -8,8 +8,9 @@ export default function Deposit() {
   const [amount, setAmount] = useState(0);
   const [status, setStatus] = useState('');
   
-  const userData = data.find((acc)=> acc.account_id === userID);
-  const {account_id, balance:{current_balance, transactions}, user} = userData;
+  const userData = data.find((acc)=> acc.id === userID);
+  // to do, fix the way to deconstruct the data
+  const {_id, balance:{current_balance, transactions}, user} = userData;
 
   const transactionType = "Deposit";
   
