@@ -3,11 +3,13 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { BankContext } from '../contexts/BankContext';
 import bad_bank_logo from '../bad_bank_logo.jpg'
+import { handleLogoutDB } from '../utils/endpoints/auth';
 
 export default function NavBar() {
   const { signedIn, setSignedIn } = useContext(BankContext);
 
   const logOut = () => {
+    handleLogoutDB();
     setSignedIn(false);
   }
 

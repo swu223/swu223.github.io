@@ -11,8 +11,7 @@ const handleSignupDB = async (user) => {
     if (response.data.token) {
       console.log("received token in the front end: ", response.data.token)
       localStorage.setItem("token", response.data.token)
-      console.log(user.name, "was created via handleSignupDB")
-      return true
+      return response.data.id;
     }
     // if not, return false
     return false
@@ -34,7 +33,8 @@ const handleLoginDB = async (user) => {
       //if loginInfo is correct, we will receive a token
       if (response.data.token) {
         localStorage.setItem("token", response.data.token)
-        return true
+        console.log("auth: ", response.data.id)
+        return true;
       } 
       // if not, return false
       return false 
@@ -45,26 +45,11 @@ const handleLoginDB = async (user) => {
   }
 }
 
-const handleLogoutDB = async (acc) => {
+const handleLogoutDB = async () => {
   // remove token
+  localStorage.removeItem('token')
 }
 
-const getData = async (user) => {
-  try{
-    // asssumes token exists. set token data in the config
-    const config = {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
-    }
-    // wait for response from db
-    const response = await axios.get("http://localhost:3001/mydata", config);
-    // puts the data into a data variable and returns it
-    const data = response.data;
-    return data;
-  } catch (err) {
-    console.error(err);
-  }
-}
 
-export {handleSignupDB, handleLogoutDB, handleLoginDB, getData}
+
+export {handleSignupDB, handleLogoutDB, handleLoginDB}
