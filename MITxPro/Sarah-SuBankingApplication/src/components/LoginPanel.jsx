@@ -70,7 +70,7 @@ export default function LoginPanel() {
     //commented out the below so far
     setSignedIn(response);
     // setUserID(userID.account_id)
-    // navigate("/account-overview")
+    navigate("/account-overview")
   }
 
   return (
