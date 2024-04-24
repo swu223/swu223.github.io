@@ -31,7 +31,26 @@ export class UserRepository {
   }
 
   async login (user) {
-    console.log('repo level login')
+    try {
+      console.log('repo level login')
+      let dbUser = await User.findOne({email: user.email});
+      console.log(dbUser);
+      if (!dbUser) {
+        throw new Error('User does not exist');
+    }
+      const isMatch = await bcrypt.compare(user.password, dbUser.password);
+      if (!isMatch) {
+          throw new Error("User name or password is incorrect");
+      }
+      const token = jwt.sign(
+          { id: dbUser._id }, process.env.JWT_SECRET,
+      );
+      return { id: dbUser._id, token };
+      }
+    catch (err) {
+      console.error(err);
+      return err;
+    }
   }
 
   async getData (user) {

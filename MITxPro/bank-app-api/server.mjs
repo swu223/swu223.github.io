@@ -30,7 +30,9 @@ app.post('/signup', async (req, res)=>{
 })
 
 app.post('/login', async (req, res) =>{
-  console.log('checking user: ', req.body.user)
+  console.log('checking user: ', req.body.user);
+  const response = await userControl.login(req.body.user);
+  res.send(JSON.stringify(response))
 })
 
 app.get('/mydata', authorizeRequest, async (req, res) => {
