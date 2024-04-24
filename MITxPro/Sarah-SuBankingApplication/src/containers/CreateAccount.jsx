@@ -106,7 +106,7 @@ export default function CreateAccount() {
       </Card.Body>)}
       {!show && (
       <Card.Body>
-        <Card.Title>Success!</Card.Title>
+        <Card.Title>Account successfully created!</Card.Title>
         <Button onClick={clearForm} >Create New Account</Button>
       </Card.Body>
       )}
