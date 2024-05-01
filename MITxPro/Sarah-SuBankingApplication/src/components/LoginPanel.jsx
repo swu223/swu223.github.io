@@ -62,15 +62,22 @@ export default function LoginPanel() {
       email:email, 
       password:password
     }
-    
+
+    // FIGURE OUT A WAY TO SHOW ERRORS INSTEAD OF CRASHING THE SITE
+
     let response = await handleLoginDB(loginInfo);
+    if (response && response){
     let data = await getData();
-    setData(data);
-    setUserID(data._id)
-    //commented out the below so far
+    
+    if(data && data){      
+      setData(data);
+      setUserID(data._id)
+    }    
+      //commented out the below so far
     setSignedIn(response);
     // setUserID(userID.account_id)
     navigate("/account-overview")
+    }
   }
 
   return (
