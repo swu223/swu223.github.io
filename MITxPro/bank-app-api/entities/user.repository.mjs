@@ -100,7 +100,7 @@ export class UserRepository {
       user.save().then(updated_user => {
           updated_user === user;
         });
-      return true
+      return true;
     } catch (err) {
       console.error(err);
       return err;
