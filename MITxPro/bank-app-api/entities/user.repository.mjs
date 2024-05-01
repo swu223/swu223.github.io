@@ -1,6 +1,7 @@
 //repository layer interacts with the db
 import db from '../db.mjs'
 import { User } from './user.model.mjs';
+import { AccTransaction } from './transaction.model.mjs';
 import * as bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
@@ -55,10 +56,11 @@ export class UserRepository {
 
   async getData (user) {
     try {
-      const {_id, name, balance:{current_balance,transactions}} = await User.findById(user);
+      const {_id, name, email, balance:{current_balance,transactions}} = await User.findById(user);
       const relData = {
         _id,
-        name, 
+        name,
+        email, 
         balance:{
           current_balance,
           transactions
@@ -72,4 +74,47 @@ export class UserRepository {
       return err;
     }
   }
+
+  async makeTransaction (transaction) {
+    try {
+      // create new transaction
+      let newTransaction = await AccTransaction.create(transaction);
+      console.log('new transaction id:',newTransaction._id)
+      // return the transaction id
+      return newTransaction._id;
+    }
+     catch (err) {
+      console.error(err);
+      return err;
+    }
+  }
+    
+  async updateBalance (updates) {
+    try {
+      // THINK ABOUT HOW YOU WANT TO TAKE IN THE ARGUMENTS AND HOW YOU WANT TO 
+      // STRUCTURE AND SEND THE DATA TO THE BACK
+      let user = await User.findById(updates.userID);
+      user.balance.current_balance = updates.ending_balance;
+      user.balance.transactions.push(updates.transaction_id);
+      
+      user.save().then(updated_user => {
+          updated_user === user;
+        });
+      return true
+    } catch (err) {
+      console.error(err);
+      return err;
+    }  
+  }
+
+  async getBalance (user) {
+    try {
+      const {balance:{current_balance}} = await User.findById(user);
+      return current_balance;
+    } catch (err) {
+      console.error(err);
+      return err;
+    }
+  }
+
 }

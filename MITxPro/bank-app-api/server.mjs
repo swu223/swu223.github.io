@@ -35,6 +35,22 @@ app.post('/login', async (req, res) =>{
   res.send(JSON.stringify(response))
 })
 
+app.post('/transaction/deposit', authorizeRequest,
+async (req, res) => {
+  let transaction = {...req.body.transaction, userID: req.userID}
+  console.log('making deposit', transaction);
+  const response = await userControl.transact(transaction);
+  console.log('server transaction response: ', response)
+  res.send(JSON.stringify(response));
+  // res.send("received request")
+})
+
+app.post('/transaction/withdrawal', authorizeRequest, async (req, res) => {
+  console.log('making withdrawal');
+  const response = await userControl.transact(req.body.transaction);
+  res.send(JSON.stringify(response));
+})
+
 app.get('/mydata', authorizeRequest, async (req, res) => {
   console.log("server", req.header('authorization'))
   console.log("server id: ", req.userID)
