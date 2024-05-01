@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { BankContext, data, setData } from '../../contexts/BankContext';
 
-const getData = async (userID) => {
+const getData = async () => {
   try{
     // asssumes token exists. set token data in the config
     const config = {
