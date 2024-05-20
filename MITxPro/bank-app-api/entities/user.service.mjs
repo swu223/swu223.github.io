@@ -17,7 +17,7 @@ export class UserService {
   async validateLogin(user) {
     const errors = {};
     if (!user.email) {
-      errors.email = "name cannot be empty";
+      errors.email = "email cannot be empty";
     }
     return errors;
   }
@@ -36,14 +36,20 @@ export class UserService {
   }
 
   async login(user) {
-    console.log( 'service level login: ')
-    const errors = await this.validateLogin(user);
-    if (Object.keys(errors).length === 0) {
+    try {
+      console.log( 'service level login: ')
+      const errors = await this.validateLogin(user);
+      if (Object.keys(errors).length === 0) {
       // call repository level
       const response = await this.userRepo.login(user);
+      console.log("service check response", response)
       return response;
     }
     return { errors }
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
   }
 jn
   async getData (user) {

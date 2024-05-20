@@ -38,7 +38,7 @@ export class UserRepository {
       console.log(dbUser);
       if (!dbUser) {
         throw new Error('User does not exist');
-    }
+      }
       const isMatch = await bcrypt.compare(user.password, dbUser.password);
       if (!isMatch) {
           throw new Error("User name or password is incorrect");
