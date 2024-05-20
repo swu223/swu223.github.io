@@ -14,7 +14,10 @@ dotenv.config();
 const userControl = new UserController();
 
 app.use(cors({
-  origin: ['http://localhost:3000']
+  origin: [
+    'http://localhost:3000',
+    'https://sarah-sufullstackbankingapp-fc44bdf5271b.herokuapp.com/'
+  ]
 }))
 
 app.use(bodyParser.json());
