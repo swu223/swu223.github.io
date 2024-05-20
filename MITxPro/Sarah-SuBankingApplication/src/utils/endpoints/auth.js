@@ -1,10 +1,9 @@
 import axios from 'axios';
-import { BankContext, data, setData } from '../../contexts/BankContext';
 
 const handleSignupDB = async (user) => {
   try {
     //get the info from database
-    const response = await axios.post("http://localhost:3001/signup", {
+    const response = await axios.post("https://banking-app-api-f3a4b30ffab3.herokuapp.com/signup", {
       user
     })
     // if created, receive a token
@@ -29,7 +28,7 @@ const handleLoginDB = async (user) => {
     } else {
       //if localStorage does not have token, then send login info to DB
       //send login info to database
-      const response = await axios.post("http://localhost:3001/login", {
+      const response = await axios.post("https://banking-app-api-f3a4b30ffab3.herokuapp.com/login", {
         user
       })
       //if loginInfo is correct, we will receive a token

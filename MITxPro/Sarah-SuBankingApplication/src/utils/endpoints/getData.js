@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { BankContext, data, setData } from '../../contexts/BankContext';
 
 const getData = async () => {
   try{
@@ -10,7 +9,7 @@ const getData = async () => {
       }
     }
     // wait for response from db
-    const response = await axios.get("http://localhost:3001/mydata", config);
+    const response = await axios.get("https://banking-app-api-f3a4b30ffab3.herokuapp.com/mydata", config);
     // puts the data into a data variable and returns it
     const data = response.data;
     return data;

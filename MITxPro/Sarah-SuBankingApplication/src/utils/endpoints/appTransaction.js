@@ -9,7 +9,7 @@ const deposit = async (transaction) => {
       }
     }
     // wait for response from db
-    const response = await axios.post("http://localhost:3001/transaction/deposit", {transaction}, config);
+    const response = await axios.post("https://banking-app-api-f3a4b30ffab3.herokuapp.com/transaction/deposit", {transaction}, config);
     // puts the data into a data variable and returns it
     const data = response.data;
     return data;
@@ -27,7 +27,7 @@ const withdraw = async (transaction) => {
       }
     }
     // wait for response from db
-    const response = await axios.post("http://localhost:3001/transaction/deposit", {transaction}, config);
+    const response = await axios.post("https://banking-app-api-f3a4b30ffab3.herokuapp.com/transaction/deposit", {transaction}, config);
     // puts the data into a data variable and returns it
     const data = response.data;
     return data;
