@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT;
 import { UserController } from './entities/user.controller.mjs';
 import { authorizeRequest } from './middleware/jwtConfig.mjs';
 
@@ -14,10 +14,7 @@ dotenv.config();
 const userControl = new UserController();
 
 app.use(cors({
-  origin: [
-    'http://localhost:3000',
-    'https://sarah-sufullstackbankingapp-fc44bdf5271b.herokuapp.com/'
-  ]
+  origin: "https://sarah-sufullstackbankingapp-fc44bdf5271b.herokuapp.com"
 }))
 
 app.use(bodyParser.json());
