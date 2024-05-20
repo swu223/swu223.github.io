@@ -40,18 +40,18 @@ export default function CreateAccount() {
       return false;
     }
 
-    //error if username has been used before
-    if (label === 'name' && data.filter((acc) => acc.name === field).length>0){
-      setStatus('Error: name already exists in database. Please login with your existing account.');
-      setTimeout(() => setStatus(''),3000)
-      return false;
-    }
-    //error if user email has been used before. 
-    if (label === 'email' && data.filter((acc) => acc.email === field).length>0){
-      setStatus('Error: email already exists in database. Please login with your existing account.');
-      setTimeout(() => setStatus(''),3000)
-      return false;
-    }
+    // //error if username has been used before
+    // if (label === 'name' && data.filter((acc) => acc.name === field).length>0){
+    //   setStatus('Error: name already exists in database. Please login with your existing account.');
+    //   setTimeout(() => setStatus(''),3000)
+    //   return false;
+    // }
+    // //error if user email has been used before. 
+    // if (label === 'email' && data.filter((acc) => acc.email === field).length>0){
+    //   setStatus('Error: email already exists in database. Please login with your existing account.');
+    //   setTimeout(() => setStatus(''),3000)
+    //   return false;
+    // }
 
     return true;
   }
