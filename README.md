@@ -6,4 +6,3 @@ This repository also acts as a storage of the class materials from MITxPRO 2023.
 
 I'm editing this readme to learn how to use pull requests and branches.
 
-test-2 edits
