@@ -12,13 +12,15 @@ const nextConfig = {
    * 
    * @see https://next.js.org/docs/app/api-reference/next-config-js/basePath
    */
-  basePath: "/"
+  basePath: "/",
 
   /**
    * Disable server-based image optimization 
    * Next.js doesn't support dynamic features with statis exports
    */
-
+  images: {
+    unpotimized: true,
+  }
 
 };
 
