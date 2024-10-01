@@ -12,7 +12,7 @@ const nextConfig = {
    * 
    * @see https://next.js.org/docs/app/api-reference/next-config-js/basePath
    */
-  basePath: "/swu223.github.io"
+  basePath: "/"
 
   /**
    * Disable server-based image optimization 
