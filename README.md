@@ -4,6 +4,11 @@ This repository is meant to house Sarah's portfolio on the website: <https://swu
 
 This repository also acts as a storage of the class materials from MITxPRO 2023.
 
+# 10.22.2024 edit
+Found out via this stackoverflow regarding how to use pnpm in github actions. https://stackoverflow.com/questions/76664013/how-to-use-pnpm-instead-of-npm-in-github-actions
+
+
+# 09.22.2024 edit
 Used the following resources to attempt to deploy a Next.js file to github:
 
 https://www.freecodecamp.org/news/how-to-deploy-next-js-app-to-github-pages/
