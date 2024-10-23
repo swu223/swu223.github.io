@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import NavBar from "./ui/navbar";
 
 export default function RootLayout({
   children,
@@ -7,7 +8,12 @@ export default function RootLayout({
 }) {
   return(
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <main>
+          <NavBar />
+          {children}
+        </main>
+      </body>
     </html>
   )
 }
