@@ -4,8 +4,11 @@ This repository is meant to house Sarah's portfolio on the website: <https://swu
 
 This repository also acts as a storage of the class materials from MITxPRO 2023.
 
+# 10.23.2024 edit
+Start editing the page itself, working with next.js components, tailwind css styling. Goal is to have a navbar on the top of the page that stays in place while the rest of the page can scroll. 
+
 # 10.22.2024 edit
-Found out via this stackoverflow regarding how to use pnpm in github actions. https://stackoverflow.com/questions/76664013/how-to-use-pnpm-instead-of-npm-in-github-actions
+Found out via this stackoverflow regarding how to use pnpm in github actions. Deployment successful. https://stackoverflow.com/questions/76664013/how-to-use-pnpm-instead-of-npm-in-github-actions
 
 
 # 09.22.2024 edit
