@@ -14,6 +14,7 @@
   "author": "Sarah W Su",
   "license": "ISC",
   "dependencies": {
+    "autoprefixer": "^10.4.20",
     "next": "^14.2.13",
     "postcss": "^8.4.47",
     "react": "^18.3.1",
