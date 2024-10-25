@@ -1,11 +1,10 @@
-import './global.css'
 import ProjectCard from "./ui/project-cards";
 
 export default function Page() {
   return (
-    <main>
+    <main className="flex-auto p-6">
 
-    <div className="w-100px h-200px bg-gray-300"> 
+    <div className=""> 
       <h1 id="about-me"> About Me </h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget mauris sit amet arcu scelerisque blandit eget id leo. Quisque vitae gravida nulla, non commodo risus. Nullam lobortis arcu ac massa sollicitudin vulputate. Proin id ipsum tempor, cursus erat tempus, pulvinar lacus. Vestibulum gravida nulla lacus. Vivamus eleifend augue luctus risus luctus, ut vehicula eros malesuada. Morbi a porta nunc, vitae tincidunt quam. Proin congue laoreet viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;

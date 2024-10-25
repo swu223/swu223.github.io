@@ -1,3 +1,4 @@
+import './global.css'
 import type { Metadata } from "next";
 import NavBar from "./ui/navbar";
 
@@ -9,7 +10,7 @@ export default function RootLayout({
   return(
     <html lang="en">
       <body>
-        <main>
+        <main className="">
           <NavBar />
           {children}
         </main>
