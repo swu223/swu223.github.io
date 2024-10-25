@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <div>
+    <div className="p-6">
       Navigation Bar goes here.
 
       <Link href="/">Home</Link>
