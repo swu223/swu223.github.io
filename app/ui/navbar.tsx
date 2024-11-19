@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const navItems = [
   {
-    name:"Home",
+    name:"About Me",
     href:"/",
   },
   {
@@ -17,7 +17,7 @@ const navItems = [
 
 export default function NavBar() {
   return (
-    <aside className="sticky top-0 left-0 right-0 p-6 bg-black">
+    <aside className="sticky top-0 left-0 right-0 p-6 px-11 bg-black text-xl">
       <nav>
         <div className="flex">
           {navItems.map((item) => {
