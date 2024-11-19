@@ -6,17 +6,27 @@ export default function Page() {
 
     <div className=""> 
       <h1 id="about-me"> About Me </h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget mauris sit amet arcu scelerisque blandit eget id leo. Quisque vitae gravida nulla, non commodo risus. Nullam lobortis arcu ac massa sollicitudin vulputate. Proin id ipsum tempor, cursus erat tempus, pulvinar lacus. Vestibulum gravida nulla lacus. Vivamus eleifend augue luctus risus luctus, ut vehicula eros malesuada. Morbi a porta nunc, vitae tincidunt quam. Proin congue laoreet viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+      <div id="profile-pic">
+        Photo
+      </div>
+      <div id="Summary">
+        <div> Summary </div>
+        <div> alsdkja;sle;asjdkas;d</div>
+      </div>
+      <div id="resume">
+        scrolling resume - Shouhld 
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget mauris sit amet arcu scelerisque blandit eget id leo. Quisque vitae gravida nulla, non commodo risus. Nullam lobortis arcu ac massa sollicitudin vulputate. Proin id ipsum tempor, cursus erat tempus, pulvinar lacus. Vestibulum gravida nulla lacus. Vivamus eleifend augue luctus risus luctus, ut vehicula eros malesuada. Morbi a porta nunc, vitae tincidunt quam. Proin congue laoreet viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
 
-        Pellentesque a erat erat. In ornare facilisis nulla. Praesent varius scelerisque felis nec malesuada. Donec malesuada dui vitae ante consectetur blandit. Sed scelerisque malesuada diam ac sagittis. Donec ultricies interdum commodo. Duis sed odio nec libero convallis eleifend id eget lorem. Nam pulvinar scelerisque felis, at placerat turpis imperdiet nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis dignissim sollicitudin. Aliquam et massa vel orci faucibus ultrices. Nulla fringilla sed felis eget iaculis. Phasellus pretium malesuada pharetra. Nam cursus mauris nec neque accumsan, non sagittis libero euismod.
+          Pellentesque a erat erat. In ornare facilisis nulla. Praesent varius scelerisque felis nec malesuada. Donec malesuada dui vitae ante consectetur blandit. Sed scelerisque malesuada diam ac sagittis. Donec ultricies interdum commodo. Duis sed odio nec libero convallis eleifend id eget lorem. Nam pulvinar scelerisque felis, at placerat turpis imperdiet nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis dignissim sollicitudin. Aliquam et massa vel orci faucibus ultrices. Nulla fringilla sed felis eget iaculis. Phasellus pretium malesuada pharetra. Nam cursus mauris nec neque accumsan, non sagittis libero euismod.
 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget mauris sit amet arcu scelerisque blandit eget id leo. Quisque vitae gravida nulla, non commodo risus. Nullam lobortis arcu ac massa sollicitudin vulputate. Proin id ipsum tempor, cursus erat tempus, pulvinar lacus. Vestibulum gravida nulla lacus. Vivamus eleifend augue luctus risus luctus, ut vehicula eros malesuada. Morbi a porta nunc, vitae tincidunt quam. Proin congue laoreet viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget mauris sit amet arcu scelerisque blandit eget id leo. Quisque vitae gravida nulla, non commodo risus. Nullam lobortis arcu ac massa sollicitudin vulputate. Proin id ipsum tempor, cursus erat tempus, pulvinar lacus. Vestibulum gravida nulla lacus. Vivamus eleifend augue luctus risus luctus, ut vehicula eros malesuada. Morbi a porta nunc, vitae tincidunt quam. Proin congue laoreet viverra. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
 
-        Pellentesque a erat erat. In ornare facilisis nulla. Praesent varius scelerisque felis nec malesuada. Donec malesuada dui vitae ante consectetur blandit. Sed scelerisque malesuada diam ac sagittis. Donec ultricies interdum commodo. Duis sed odio nec libero convallis eleifend id eget lorem. Nam pulvinar scelerisque felis, at placerat turpis imperdiet nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis dignissim sollicitudin. Aliquam et massa vel orci faucibus ultrices. Nulla fringilla sed felis eget iaculis. Phasellus pretium malesuada pharetra. Nam cursus mauris nec neque accumsan, non sagittis libero euismod.
+          Pellentesque a erat erat. In ornare facilisis nulla. Praesent varius scelerisque felis nec malesuada. Donec malesuada dui vitae ante consectetur blandit. Sed scelerisque malesuada diam ac sagittis. Donec ultricies interdum commodo. Duis sed odio nec libero convallis eleifend id eget lorem. Nam pulvinar scelerisque felis, at placerat turpis imperdiet nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis dignissim sollicitudin. Aliquam et massa vel orci faucibus ultrices. Nulla fringilla sed felis eget iaculis. Phasellus pretium malesuada pharetra. Nam cursus mauris nec neque accumsan, non sagittis libero euismod.
 
-        Sed id metus quis nulla gravida laoreet vitae eget dui. Curabitur eget nunc orci. Aenean facilisis hendrerit nisl, eget condimentum diam venenatis nec. Nulla facilisi. Sed pretium enim nunc, eget sagittis orci accumsan ut. Quisque feugiat quam et nisi gravida faucibus a vel tellus. Sed vitae cursus mauris, sit amet varius arcu. Cras quis enim eu dolor facilisis aliquam mollis nec neque. Praesent convallis justo mauris, pulvinar placerat ipsum aliquet ac. Mauris sodales laoreet semper. Fusce sed orci odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam egestas euismod convallis.
-      </p>
+          Sed id metus quis nulla gravida laoreet vitae eget dui. Curabitur eget nunc orci. Aenean facilisis hendrerit nisl, eget condimentum diam venenatis nec. Nulla facilisi. Sed pretium enim nunc, eget sagittis orci accumsan ut. Quisque feugiat quam et nisi gravida faucibus a vel tellus. Sed vitae cursus mauris, sit amet varius arcu. Cras quis enim eu dolor facilisis aliquam mollis nec neque. Praesent convallis justo mauris, pulvinar placerat ipsum aliquet ac. Mauris sodales laoreet semper. Fusce sed orci odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam egestas euismod convallis.
+        </p>
+      </div>
     </div>
     
     <div> 
