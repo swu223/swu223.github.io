@@ -2,8 +2,13 @@ import ProjectCards from "./project-cards"
 
 export default function Projects() {
   return (
-    <div className="flex grid-cols-3 grid-rows-3 px-8 gap-5 grid-flow-row">
+    <div className="flex-col px-8 gap-5">
+
+      <h1 id="about-me " className="text-xl py-4">Projects</h1>
+
+      <div className="flex grid gap-4 grid-cols-3 grid-rows-3">
       <ProjectCards/>
+      </div>
     </div>
   )
 }

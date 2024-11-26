@@ -54,10 +54,10 @@ export default function ProjectCards() {
         return (
           <div 
             key={project.name}
-            className="w-42 y-60 ">
+            className="w-42 y-60 overflow-auto">
             <p>{project.name}</p>
             <div>image here</div>
-            <p className="overflow-auto" >
+            <p className="" >
               {project.description}
             </p>
           </div>
