@@ -56,17 +56,6 @@ const projectItems = [
     github_link: "https://github.com/swu223",
     description: "Pellentesque a erat erat. In ornare facilisis nulla. Praesent varius scelerisque felis nec malesuada. Donec malesuada dui vitae ante consectetur blandit. Sed scelerisque malesuada diam ac sagittis. Donec ultricies interdum commodo. Duis sed odio nec libero convallis eleifend id eget lorem. rem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget mauris sit amet arcu scelerisque blandit eget id leo. Quisque vitae gravida nulla, non commodo risus. Nullam lobortis arcu ac massa sollicitudin vulputate. Proin id ipsum tempor, cursus erat tempus, pulvinar lacus. Vestibulum gravi"
   },
-  {
-    name: "project6",
-    date: "Oct 2024",
-    languages: [
-      "Javascript", 
-      "Node.js"
-    ],
-    demo_link: "https://google.com",
-    github_link: "https://github.com/swu223",
-    description: "Pellentesque a erat erat. In ornare facilisis nulla. Praesent varius scelerisque felis nec malesuada. Donec malesuada dui vitae ante consectetur blandit. Sed scelerisque malesuada diam ac sagittis. Donec ultricies interdum commodo. Duis sed odio nec libero convallis eleifend id eget lorem. rem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget mauris sit amet arcu scelerisque blandit eget id leo. Quisque vitae gravida nulla, non commodo risus. Nullam lobortis arcu ac massa sollicitudin vulputate. Proin id ipsum tempor, cursus erat tempus, pulvinar lacus. Vestibulum gravi"
-  },
 ]
 
 export default function ProjectCards() {
