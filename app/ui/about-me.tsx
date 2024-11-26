@@ -1,20 +1,43 @@
 export default function AboutMe() {
+  const languages =[
+    "Javascript",
+    "Node.js",
+    "Typescript",
+    "Express.js",
+    "React.js",
+    "Next.js",
+    "MongoDB"
+  ]
   return (
     <div className="flex flex-col px-8"> 
       
       <h1 id="about-me " className="text-xl py-4"> Sarah W Su </h1>
       
       <div className="row-span-4 flex-col space-y-2 md:grid grid-cols-3 grid-rows-3 ">
-        <div id="profile-pic" className="">
+        
+        <div id="profile-pic" className="row-span-2">
           Photo
         </div>
+
         <div id="Summary" className="col-span-2 border-2 border-slate-200 rounded-md p-2">
           <div> Summary </div>
           <p> 
             alsdkja;sle;asjdkas;d
           </p>
         </div>
-        <div id="resume" className="col-start-2 col-span-2 row-span-2 border-2 border-slate-200 rounded-md p-2">
+
+        <div id="languages-used" className="flex flex-wrap gap-2 justify-start content-start">
+          {languages.map((language) =>{
+            return (
+            <div
+              key={language}
+              className="rounded-full bg-slate-700 px-2 h-6 text-center"
+            >
+              {language}
+            </div>)
+          })}
+        </div>
+        <div id="resume" className="col-start-2 col-span-2 row-start-2 row-span-2 border-2 border-slate-200 rounded-md p-2">
           <h2> Resume </h2> 
           <div className="h-72 overflow-auto">
             <p>
