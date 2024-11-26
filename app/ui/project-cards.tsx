@@ -54,12 +54,19 @@ export default function ProjectCards() {
         return (
           <div 
             key={project.name}
-            className="w-42 y-60 ">
-            <p>{project.name}</p>
+            className="flex flex-col w-42 h-58 justify-items-start p-4 gap-1 border-2 border-slate-200 rounded-md">
+
+            <h2>{project.name}</h2>
+
             <div>image here</div>
-            <p className="overflow-auto" >
+          
+            <p className="h-36 overflow-auto">
               {project.description}
             </p>
+
+            <Link href={project.demo_link} className="flex">Demo</Link>
+
+            <Link href={project.github_link} className="flex">Github</Link>
           </div>
         );
       })}
