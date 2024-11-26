@@ -59,7 +59,19 @@ export default function ProjectCards() {
             <h2>{project.name}</h2>
 
             <div>image here</div>
-          
+
+            <div className="flex flex-row gap-2">
+              {project.languages.map((language) =>{
+                return (
+                <div
+                  key={language}
+                  className="rounded-full bg-slate-700 px-2"
+                >
+                  {language}
+                </div>)
+              })}
+            </div>
+
             <p className="h-36 overflow-auto">
               {project.description}
             </p>
