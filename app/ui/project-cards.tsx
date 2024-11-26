@@ -54,12 +54,19 @@ export default function ProjectCards() {
         return (
           <div 
             key={project.name}
-            className="w-42 y-60 overflow-auto">
-            <p>{project.name}</p>
+            className="flex-col w-42 h-42 justify-items-start py-4">
+
+            <h2>{project.name}</h2>
+
             <div>image here</div>
-            <p className="" >
+          
+            <p className="h-40 overflow-auto">
               {project.description}
             </p>
+
+            <Link href={project.demo_link} className="flex">Demo</Link>
+
+            <Link href={project.github_link} className="flex">Github</Link>
           </div>
         );
       })}
