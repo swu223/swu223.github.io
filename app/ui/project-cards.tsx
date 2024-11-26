@@ -54,13 +54,13 @@ export default function ProjectCards() {
         return (
           <div 
             key={project.name}
-            className="flex-col w-42 h-42 justify-items-start py-4">
+            className="flex flex-col w-42 h-58 justify-items-start p-4 gap-1 border-2 border-slate-200 rounded-md">
 
             <h2>{project.name}</h2>
 
             <div>image here</div>
           
-            <p className="h-40 overflow-auto">
+            <p className="h-36 overflow-auto">
               {project.description}
             </p>
 
