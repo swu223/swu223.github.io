@@ -1,13 +1,40 @@
+import { 
+  AiFillGithub, 
+  AiFillLinkedin,
+  AiOutlineMail
+} from "react-icons/ai";
+import Link from "next/link";
+
+const languages =[
+  "Javascript",
+  "Node.js",
+  "Typescript",
+  "Express.js",
+  "React.js",
+  "Next.js",
+  "MongoDB"
+]
+
+const contact= [
+  {
+    name: "email",
+    icon: AiOutlineMail,
+    link: "mailto:sarahwu223@gmail.com"
+  },
+  {
+    name: "github",
+    icon: AiFillGithub,
+    link: "https://github.com/swu223"
+  },
+  {
+    name: "linkedin",
+    icon: AiFillLinkedin,
+    link: "https://www.linkedin.com/in/sarah-w-su/"
+  }
+]
+
 export default function AboutMe() {
-  const languages =[
-    "Javascript",
-    "Node.js",
-    "Typescript",
-    "Express.js",
-    "React.js",
-    "Next.js",
-    "MongoDB"
-  ]
+
   return (
     <div className="flex flex-col px-8"> 
       
@@ -26,17 +53,33 @@ export default function AboutMe() {
           </p>
         </div>
 
-        <div id="languages-used" className="flex flex-wrap gap-2 justify-start content-start">
-          {languages.map((language) =>{
-            return (
-            <div
-              key={language}
-              className="rounded-full bg-slate-700 px-2 h-6 text-center"
-            >
-              {language}
-            </div>)
-          })}
+        <div className="flex flex-col gap-2">
+          <div id="languages-used" className="flex flex-wrap gap-2 justify-start content-start">
+            {languages.map((language) =>{
+              return (
+              <div
+                key={language}
+                className="rounded-full bg-slate-700 px-2 h-6 text-center"
+              >
+                {language}
+              </div>)
+            })}
+          </div>
+          <div id="contact-info" className="flex flex-wrap gap-2">
+            {contact.map((method) => {
+              const Linkicon = method.icon
+              return (
+                <Link
+                  key={method.name}
+                  href={method.link}
+                >
+                <Linkicon className="size-8"/>
+                </Link>
+              )
+            })}
+          </div>
         </div>
+
         <div id="resume" className="col-start-2 col-span-2 row-start-2 row-span-2 border-2 border-slate-200 rounded-md p-2">
           <h2> Resume </h2> 
           <div className="h-72 overflow-auto">
