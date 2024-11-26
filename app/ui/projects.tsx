@@ -6,9 +6,11 @@ export default function Projects() {
 
       <h1 id="about-me " className="text-xl py-4">Projects</h1>
 
-      <div className="flex grid gap-4 grid-cols-3 grid-rows-3">
+      <div className="flex grid gap-4 grid-cols-3 grid-rows-2">
       <ProjectCards/>
       </div>
+
+      <div className ="justify-self-end w-32 p-2 ">See more...</div>
     </div>
   )
 }
