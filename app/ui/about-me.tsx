@@ -4,7 +4,7 @@ export default function AboutMe() {
       
       <h1 id="about-me " className="text-xl py-4"> Sarah W Su </h1>
       
-      <div className="row-span-4 grid grid-cols-3 grid-rows-3 gap-2">
+      <div className="row-span-4 flex-col space-y-2 md:grid grid-cols-3 grid-rows-3 ">
         <div id="profile-pic" className="">
           Photo
         </div>
