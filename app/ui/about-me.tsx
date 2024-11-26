@@ -4,17 +4,17 @@ export default function AboutMe() {
       
       <h1 id="about-me " className="text-xl py-4"> Sarah W Su </h1>
       
-      <div className="row-span-4 grid grid-cols-3 grid-rows-3">
+      <div className="row-span-4 grid grid-cols-3 grid-rows-3 gap-2">
         <div id="profile-pic" className="">
           Photo
         </div>
-        <div id="Summary" className="col-span-2">
+        <div id="Summary" className="col-span-2 border-2 border-slate-200 rounded-md p-2">
           <div> Summary </div>
           <p> 
             alsdkja;sle;asjdkas;d
           </p>
         </div>
-        <div id="resume" className="col-start-2 col-span-2 row-span-2">
+        <div id="resume" className="col-start-2 col-span-2 row-span-2 border-2 border-slate-200 rounded-md p-2">
           <h2> Resume </h2> 
           <div className="h-72 overflow-auto">
             <p>
