@@ -2,7 +2,7 @@
 
 This repository is meant to house Sarah's portfolio on the website: <https://swu223.github.io>.
 
-This repository also acts as a storage of the class materials from MITxPRO 2023.
+This repository also acts as a storage repository of the class materials from MITxPRO 2023.
 
 # 10.23.2024 edit
 Start editing the page itself, working with next.js components, tailwind css styling. Goal is to have a navbar on the top of the page that stays in place while the rest of the page can scroll. 
@@ -26,4 +26,4 @@ https://github.com/gregrickaby/nextjs-github-pages/blob/main/.github/workflows/d
   
   https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 
-  https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#creating-a-custom-github-actions-workflow-to-publish-your-site
+  https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#creating-a-custom-github-actions-workflow-to-publish-your-site.
