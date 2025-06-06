@@ -90,7 +90,7 @@ export default function AboutMe() {
             <Link
               href="https://drive.google.com/file/d/1npx3TKhwjCGEud41PvyIU24wKkRJxV1u/view?usp=sharing"
             >
-              Resume PDF
+              PDF HERE
             </Link>
             <p>
               {/* To do: make the resume populate via a function and a text document so that the formatting updates accordingly...? */}
