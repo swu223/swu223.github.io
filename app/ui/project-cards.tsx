@@ -19,7 +19,7 @@ const projectItems = [
     date: "Oct 2024",
     languages: [ 
       "Node.js",
-      "Typscript",
+      "Typescript",
 
     ],
     demo_link: "https://nextjs-dashboard-4tpa1pajk-sarah-w-sus-projects.vercel.app/",
