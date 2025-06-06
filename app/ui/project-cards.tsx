@@ -35,9 +35,9 @@ const projectItems = [
       "MongoDB",
       "AWS",
     ],
-    demo_link: "https://google.com",
-    github_link: "https://github.com/swu223",
-    description: "rem ipsum dolor sit amet, consectetur adipiscing elit. Nam eget mauris sit amet arcu scelerisque blandit eget id leo. Quisque vitae gravida nulla, non commodo risus. Nullam lobortis arcu ac massa sollicitudin vulputate. Proin id ipsum tempor, cursus erat tempus, pulvinar lacus. Vestibulum gravi"
+    demo_link: "https://www.youtube.com/watch?v=2l8vcHCzn5U&ab_channel=SarahWSu",
+    github_link: "https://github.com/swu223/swu223.github.io/tree/main/MITxPro/Sarah-SuBankingApplication",
+    description: "A mock banking application that allows a user to sign up, login, withdraw and deposit into their bank account"
   }
 ]
 
